@@ -117,24 +117,21 @@ a {
   justify-content: space-between;
   align-items:center;
   padding: 2%;
-  background-color: #97A0A6;
-  color: #c3ccd1;
-  border: 1px solid #2e4482;
+  background-color: aqua;
 }
 
 .header__image{
   width: 2.5%;
-}
 
-.header__navigation a{
-  color: #5b8f94;
 }
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 .main{
-  background-color: #E9EFF2;
+ 
+
+  background-color: aquamarine;
 }
 
 
@@ -149,11 +146,11 @@ a {
 
 
 .discovery__results li{
-  background-color: #97A0A6;
+  background-color: #cdcdcd;
   border: 1px solid #666;
   margin-bottom: 10px;
   padding: 5px;
-  color: #ebebeb;
+  color: #00B7FF;
 }
 /* ... your code here ... */
 #mapView{
@@ -166,8 +163,7 @@ a {
 
 /* ... your code here ... */
 .footer{
-  background-color: #97A0A6;
-  color: #c3ccd1;;
+  background-color: greenyellow;
   bottom: 0;
   height: 100px;
   display: flex;
