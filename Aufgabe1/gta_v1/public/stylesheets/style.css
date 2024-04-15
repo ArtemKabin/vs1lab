@@ -110,125 +110,49 @@ a {
 /* ### TODO ### Styles for Header Component */
 
 /* ... your code here ... */
-
 .header{
   height: 7rem;
   display: flex;
   justify-content: space-between;
   align-items:center;
   padding: 2%;
-  background-color: var(--border-color);
-  border: 1px solid var(--gray-color);
+  background-color: aqua;
 }
 
 .header__image{
-  width: 6.5%;
+  width: 2.5%;
+
 }
 
-.header__navigation a{
-  color: var(--link-color);
-.header {
-  background-color: #cdcdcd;
-  border: 1px solid #666;
-}
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 .main{
-  display: flex;
-  align-items: flex-start;
-  background-color: var(--background-color);
+ 
+
+  background-color: aquamarine;
 }
 
 
 /* ### TODO ### Styles for Tagging component */
 
-.tagging {
-  display: flex;
-  flex-direction: column;
-  margin: 10%;
-}
+/* ... your code here ... */
 
-.tagging form fieldset{
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.tagging form fieldset legend{
-  font-weight: bold;
-}
-
-.tagging form fieldset input{
-  padding: 10px;
-  margin-bottom: 20px;
-}
 
 /* ### TODO ### Styles for Discovery component */
 
-.discovery {
-  display: flex;
-  flex-direction: column;
-  margin: 10%;
-}
-
-.discovery__search fieldset {
-  padding: 10px;
-  margin-top: 10px;
-}
-
-.discovery__search fieldset input{
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 5px;
-}
-
-.discovery__search legend {
-  font-weight: bold;
-}
-
-.discovery__results li{
-  background-color: var(--border-color);
-  border: 1px solid var(--gray-color);
-  color: var(--link-color);
-  font-weight: bold;
-  padding: 10px;
-  margin-bottom: 20px;
-  list-style-type: none;
-}
-
-.discovery__wrapper {
-  margin-top: 20px;
-}
-
-.discovery__map {
-  display: flex;
-  flex-direction: column;
-  margin-left: 20px;
-}
 /* ... your code here ... */
 #mapView{
   width: 230px;
-.discovery__results li{
-  background-color: #cdcdcd;
-  border: 1px solid #666;
-  margin-bottom: 10px;
-  padding: 5px;
-  color: #00B7FF;
-}
 }
 
 
 /* ### TODO ### Styles for Footer Component */
 
-
 /* ... your code here ... */
 .footer{
-  background-color: var(--border-color);
-  border: 1px solid var(--gray-color);
+  background-color: greenyellow;
   bottom: 0;
   height: 100px;
   display: flex;
@@ -238,17 +162,8 @@ a {
 .footer span{
   padding: 30px;
 }
-.footer {
-  background-color: #cdcdcd;
-  border: 1px solid #666;
 
-}
 
 /* ### TODO ### Media Queries */
 
 /* ... your code here ... */
-@media screen and (max-width: 800px) {
-  .main {
-    flex-direction: column;
-  }
-}
