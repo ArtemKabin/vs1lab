@@ -127,6 +127,9 @@ a {
 
 .header__navigation a{
   color: var(--link-color);
+.header {
+  background-color: #cdcdcd;
+  border: 1px solid #666;
 }
 
 /* ### TODO ### Styles for Main Component */
@@ -209,6 +212,13 @@ a {
 /* ... your code here ... */
 #mapView{
   width: 230px;
+.discovery__results li{
+  background-color: #cdcdcd;
+  border: 1px solid #666;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #00B7FF;
+}
 }
 
 
@@ -228,7 +238,11 @@ a {
 .footer span{
   padding: 30px;
 }
+.footer {
+  background-color: #cdcdcd;
+  border: 1px solid #666;
 
+}
 
 /* ### TODO ### Media Queries */
 
