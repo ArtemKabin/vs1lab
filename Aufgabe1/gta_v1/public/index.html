@@ -21,8 +21,8 @@
         </nav>
     </header>
 
-    <main class="main row" >
-        <section class="main__tagging tagging col-2">
+    <main class="main">
+        <section class="main__tagging tagging">
             <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
@@ -31,19 +31,11 @@
                     <legend>Add Geo-Tag</legend>
                     <!-- ... your code here ... -->
                     <label for="latitude">Latitude:</label><br>
-                    <input type="number" id="latitude" name="latitude"  placeholder="12.12345" min="-90" max="90" disabled required><br>
-                    <label for="longitude">Longitude:</label><br>
-                    <input type="number" id="longitude" name="longitude" placeholder="1.12345" disabled required><br>
-                    <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" placeholder="e.g. Karlsruhe" size="10" required><br>
-                    <label for="hashtag">Hashtag:</label><br>
-                    <input type="text" id="hashtag" name="hashtag" placeholder="e.g. #Free"  size="11" pattern="#[a-zA-Z]+" ><br><br>
-                    <input type="submit" placeholder="Add Tag">
-                    <input type="text" id="latitude" name="latitude" value="12.12345" required><br>
+                    <input type="number" id="latitude" name="latitude" value="12.12345" min="-90" max="90" disabled required><br>
                     <label for="longitude">Longitude:</label><br>
                     <input type="number" id="longitude" name="longitude" value="1.12345" disabled required><br>
                     <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" value="e.g. Central Berlin" size="10" required><br>
+                    <input type="text" id="name" name="name" value="e.g. Karlsruhe" size="10" required><br>
                     <label for="hashtag">Hashtag:</label><br>
                     <input type="text" id="hashtag" name="hashtag" value="e.g. #Free"  size="11" pattern="#[a-zA-Z]+" ><br><br>
                     <input type="submit" value="Add Tag">
@@ -54,7 +46,7 @@
 
         </section>
 
-        <section class="main__discovery discovery col-7">
+        <section class="main__discovery discovery">
             <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
@@ -64,26 +56,26 @@
                 <fieldset>
                     <legend>Search</legend>
                     <label for="searchterm">Search term or keywords</label>
-                    <input type="text" id="searchterm" placeholder="e.g Karlsruhe">
+                    <input type="text" id="searchterm" value="e.g Karlsruhe">
                     <label hidden for="latitude">Latitude:</label><br>
-                    <input type="hidden" id="latitude" name="latitude" placeholder="12.12345" min="-90" max="90"><br>
+                    <input type="hidden" id="latitude" name="latitude" value="12.12345" min="-90" max="90" disabled required><br>
                     <label hidden for="longitude">Longitude:</label><br>
-                    <input type="hidden" id="longitude" name="longitude" placeholder="1.12345"><br>
+                    <input type="hidden" id="longitude" name="longitude" value="1.12345" disabled required><br>
                     <input type="submit" value="Search" >
                 </fieldset>
 
             </form>
             <!-- ############### VS1Lab 1a Form 2 End -->
 
-            <div class="discovery__wrapper row">
-                <div class="discovery__taglist col-6">
+            <div class="discovery__wrapper">
+                <div class="discovery__taglist">
                     <ul class="discovery__results" id="discoveryResults">
                         <li>Castle (49.01379, 8.404435) #sight</li>
                         <li>IWI (49.01379, 8.390071) #edu</li>
                     </ul>
                 </div>
 
-                <div class="discovery__map col-8">
+                <div class="discovery__map">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span>Result map</span>
                 </div>
