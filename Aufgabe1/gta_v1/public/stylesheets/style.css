@@ -109,14 +109,17 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
-.header {
-  background-color: #cdcdcd;
-  border: 1px solid #666;
-}
+/* ... your code here ... */
+
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
+.main{
+ 
+
+  background-color: aquamarine;
+}
 
 
 /* ### TODO ### Styles for Tagging component */
@@ -128,13 +131,7 @@ a {
 
 /* ### TODO ### Styles for Discovery component */
 
-.discovery__results li{
-  background-color: #cdcdcd;
-  border: 1px solid #666;
-  margin-bottom: 10px;
-  padding: 5px;
-  color: #00B7FF;
-}
+/* ... your code here ... */
 
 
 /* ### TODO ### Styles for Footer Component */
