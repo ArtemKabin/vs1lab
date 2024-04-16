@@ -109,6 +109,7 @@ a {
 
 /* ### TODO ### Styles for Header Component */
 
+
 /* ... your code here ... */
 .header{
   height: 7rem;
@@ -116,32 +117,44 @@ a {
   justify-content: space-between;
   align-items:center;
   padding: 2%;
-  background-color: aqua;
+  background-color: #97A0A6;
+  color: #c3ccd1;
+  border: 1px solid #2e4482;
 }
 
 .header__image{
   width: 2.5%;
-
 }
 
+.header__navigation a{
+  color: #5b8f94;
+}
 
 /* ### TODO ### Styles for Main Component */
 
 /* ... your code here ... */
 .main{
- 
-
-  background-color: aquamarine;
+  background-color: #E9EFF2;
 }
 
 
 /* ### TODO ### Styles for Tagging component */
 
-/* ... your code here ... */
-
+.tagging {
+  display: flex;
+  flex-direction: column;
+}
 
 /* ### TODO ### Styles for Discovery component */
 
+
+.discovery__results li{
+  background-color: #97A0A6;
+  border: 1px solid #666;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #ebebeb;
+}
 /* ... your code here ... */
 #mapView{
   width: 230px;
@@ -150,9 +163,11 @@ a {
 
 /* ### TODO ### Styles for Footer Component */
 
+
 /* ... your code here ... */
 .footer{
-  background-color: greenyellow;
+  background-color: #97A0A6;
+  color: #c3ccd1;;
   bottom: 0;
   height: 100px;
   display: flex;
