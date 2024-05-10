@@ -227,6 +227,9 @@ a {
   padding: 30px;
 }
 
+#map { 
+   height: 500px;
+ }
 
 /* ### TODO ### Media Queries */
 
