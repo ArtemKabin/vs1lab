@@ -102,7 +102,20 @@ class MapManager {
  * A function to retrieve the current location and update the page.
  * It is called once the page has been fully loaded.
  */
-// ... your code here ...
+function updateLocation() {
+  LocationHelper.findLocation((location) => {
+    const latitudeElement = document.getElementById("latitude");
+    const longitudeElement = document.getElementById("longitude");
+
+    latitudeElement.textContent = location.latitude;
+    longitudeElement.textContent = location.longitude;
+
+    const mapManager = new MapManager(this.#apiKey);
+    const mapUrl = mapManager.getMapUrl(location.latitude, location.longitude);
+    const mapImage = document.getElementById("mapView");
+    mapImage.src = mapUrl;
+  });
+}
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
