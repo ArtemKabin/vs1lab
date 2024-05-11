@@ -122,26 +122,25 @@ function updateLocation ()  {
     // Call the static method 'findLocation' of the LocationHelper class.
     // Pass an arrow function as argument that will be called with the location details.
     LocationHelper.findLocation((location) => {
-        
+
+        // This will be called only if finding the location was successful.
+
         // remove all children from the map container
         var mapContainer = document.getElementById('map');
         mapContainer.replaceChildren();
-
+        
         // Create a MapManager object and initialize the map.
         const mapManager = new MapManager();
         mapManager.initMap(location.latitude, location.longitude);
-        // // Update the map markers with the current location.
+        // Update the map markers with the current location.
         mapManager.updateMarkers(location.latitude, location.longitude);
         
-        // // Update the form fields with the current location.
+        // Update the form fields with the current location.
         document.getElementById('latitude').value = location.latitude;
         document.getElementById('longitude').value = location.longitude;
         document.getElementById('latitudediscsearch').value = location.latitude;
         document.getElementById('longitudediscsearch').value = location.longitude;
-        
     });
-
- 
 
 
 }
