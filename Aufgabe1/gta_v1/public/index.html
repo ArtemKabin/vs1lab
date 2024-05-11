@@ -22,7 +22,7 @@
     </header>
 
     <main class="main row" >
-        <section class="main__tagging tagging col-2">
+        <section class="main__tagging tagging col-3">
             <h2>Tagging</h2>
 
             <!-- ############### VS1Lab 1a Form 1 Start -->
@@ -35,9 +35,9 @@
                     <label for="longitude">Longitude:</label><br>
                     <input type="number" id="longitude" name="longitude" placeholder="1.12345" disabled required><br>
                     <label for="name">Name:</label><br>
-                    <input type="text" id="name" name="name" placeholder="e.g. Karlsruhe" size="10" required><br>
+                    <input type="text" id="name" name="name" placeholder="e.g. Karlsruhe" maxlength="10" pattern="[a-zA-Z]+" required><br>
                     <label for="hashtag">Hashtag:</label><br>
-                    <input type="text" id="hashtag" name="hashtag" placeholder="e.g. #Free"  size="11" pattern="#[a-zA-Z]+" ><br><br>
+                    <input type="text" id="hashtag" name="hashtag" placeholder="e.g. #Free"  maxlength="11" pattern="#[a-zA-Z]+" ><br><br>
                     <input type="submit" placeholder="Add Tag">
                 
                 </fieldset>
@@ -46,7 +46,7 @@
 
         </section>
 
-        <section class="main__discovery discovery col-7">
+        <section class="main__discovery discovery col-9">
             <h2 class="discovery__title">Discovery</h2>
 
             <!-- ############### VS1Lab 1a Form 2 Start -->
@@ -58,9 +58,9 @@
                     <label for="searchterm">Search term or keywords</label>
                     <input type="text" id="searchterm" placeholder="e.g Karlsruhe">
                     <label hidden for="latitude">Latitude:</label><br>
-                    <input type="hidden" id="latitude" name="latitude" placeholder="12.12345" min="-90" max="90"><br>
+                    <input type="hidden" id="latitudediscsearch" name="latitude" placeholder="12.12345" min="-90" max="90"><br>
                     <label hidden for="longitude">Longitude:</label><br>
-                    <input type="hidden" id="longitude" name="longitude" placeholder="1.12345"><br>
+                    <input type="hidden" id="longitudediscsearch" name="longitude" placeholder="1.12345"><br>
                     <input type="submit" value="Search" >
                 </fieldset>
 
