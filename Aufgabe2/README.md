@@ -100,9 +100,9 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 ### 1. Teilaufgabe: Koordinaten bestimmen
 
-- [ ] Funktion `updateLocation` erstellen
-  - [ ] Nach dem Laden automatisch aufrufen
-  - [ ] Auslesen der Position mit `findLocation`
+- [x] Funktion `updateLocation` erstellen
+  - [x] Nach dem Laden automatisch aufrufen
+  - [x] Auslesen der Position mit `findLocation`
   - [ ] Koordinaten in die Formulare eintragen
     - [ ] `latitude` und `longitude` Felder
     - [ ] Koordinaten in `value`-Attribute schreiben
@@ -111,5 +111,5 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 ### 2. Teilaufgabe: Karte darstellen
 
 - [ ] `updateLocation`-Funktion ergänzen
-  - [ ] Funktionen `initMap` und `updateMarkers` aufrufen
+  - [x] Funktionen `initMap` und `updateMarkers` aufrufen
   - [ ] `img` und `p`-Elemente mit DOM-Funktionen entfernen

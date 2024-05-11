@@ -118,7 +118,32 @@ class MapManager {
  */
 // ... your code here ...
 
+function updateLocation ()  {
+
+    // Call the static method 'findLocation' of the LocationHelper class.
+    // Pass an arrow function as argument that will be called with the location details.
+
+    // LocationHelper.findLocation((location) => {
+    //     // Create a MapManager object and initialize the map.
+    //     let mapManager = new MapManager();
+    //     mapManager.initMap(location.latitude, location.longitude);
+    //     // Update the map markers with the current location.
+    //     mapManager.updateMarkers(location.latitude, location.longitude);
+    // });
+
+    document.getElementById('latitude').value = location.latitude;
+    document.getElementById('longitude').value = location.longitude;
+    document.getElementById('latitudediscsearch').value = location.latitude;
+    document.getElementById('longitudediscsearch').value = location.longitude;
+    // - [ ] Koordinaten in die Formulare eintragen
+    // - [ ] `latitude` und `longitude` Felder
+    // - [ ] Koordinaten in `value`-Attribute schreiben
+    // - [ ] Auch versteckte Eingabefelder berücksichtigen
+
+}
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
-    alert("Please change the script 'geotagging.js'");
+    updateLocation();
+    // alert("Please change the script 'geotagging.js'");
 });
