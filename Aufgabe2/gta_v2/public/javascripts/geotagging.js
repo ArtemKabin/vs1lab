@@ -133,7 +133,7 @@ function updateLocation() {
     mapManager.initMap(location.latitude, location.longitude);
     mapManager.updateMarkers(location.latitude, location.longitude);
 
-    var discoveryMapImg = document.querySelector(".discovery__map img");
+    var discoveryMapImg = document.getElementById("mapView") ;
 
     var discoveryMapSpan = document.querySelector(".discovery__map span");
 
