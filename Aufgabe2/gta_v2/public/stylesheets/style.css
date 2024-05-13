@@ -172,7 +172,7 @@ a {
 .discovery {
   display: flex;
   flex-direction: column;
-  margin: 10%;
+  margin: 10% 10% 10% 0;
 }
 
 .discovery__search fieldset {
@@ -238,5 +238,21 @@ a {
 @media screen and (max-width: 800px) {
   .main {
     flex-direction: column;
+  }
+  .discovery {
+    display: flex;
+    flex-direction: column;
+    margin: 10% 10% 10% 10%;
+  }
+  .discovery__wrapper{
+    flex-direction: column;
+  }
+
+  .discovery__taglist{
+    width: 100%;
+  }
+  #map{
+    width: 100%;
+    margin: 10% 10% 10% 0;
   }
 }
