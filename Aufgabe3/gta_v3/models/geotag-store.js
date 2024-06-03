@@ -49,15 +49,30 @@ class InMemoryGeoTagStore{
      * @returns {GeoTag[]} The geotags in the proximity
      */
     getNearbyGeoTags(latitude, longitude, radius){
-        const distance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2);
+        const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
+
         nearByGeoTags = this.#geotags.filter(
-            geotag => distance(geotag) <= radius
+            geotag => isValidDistance(geotag)
         );
         return nearByGeoTags;
+    }
 
-            }
-    
-
+    /**
+     * Search geotags in the proximity of a location that match a keyword.
+     * @param {number} latitude The latitude of the location
+     * @param {number} longitude The longitude of the location
+     * @param {number} radius The radius of the proximity
+     * @param {string} keyword The keyword to match
+     * @returns {GeoTag[]} The geotags in the proximity that match the keyword
+     */
+    searchNearbyGeoTags(latitude, longitude, radius, keyword){
+        const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
+        const matchesKeyword = (geotag) => geotag.name.includes(keyword) || geotag.hashtag.includes(keyword);
+        
+        matchingNearbyGeoTags = this.getNearbyGeoTags(latitude, longitude, radius).filter(
+            geotag => isValidDistance(geotag) && matchesKeyword(geotag)
+        )
+    }    
 }
 
 module.exports = InMemoryGeoTagStore
