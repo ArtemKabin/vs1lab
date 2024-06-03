@@ -140,10 +140,10 @@ Zur Übersicht folgen noch mal alle Anforderungen in kompakter Form als Checklis
 
 ### 2. Teilaufgabe: Client-Anpassung
 
-- [ ] Teil A: `MapManager` und `LocationHelper` **Klassen in eigene Skripte auslagern** (`./public/javascripts/geotagging.js`)
-- [ ] Teil B:  `updateLocation`-Funktion **optimieren**
-  - [ ] Auslesen von Formularfeldern mit Koordinaten
-  - [ ] Bedingte Ausführung von `LocationHelper.findLocation()`
+- [x] Teil A: `MapManager` und `LocationHelper` **Klassen in eigene Skripte auslagern** (`./public/javascripts/geotagging.js`)
+- [x] Teil B:  `updateLocation`-Funktion **optimieren**
+  - [x] Auslesen von Formularfeldern mit Koordinaten
+  - [x] Bedingte Ausführung von `LocationHelper.findLocation()`
 
 ### 3. Teilaufgabe: Karten-Erweiterung
 
