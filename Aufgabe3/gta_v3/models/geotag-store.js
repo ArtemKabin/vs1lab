@@ -24,8 +24,39 @@
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
+    #geotags = [];
+    /**
+     * Add a geotag to the store.
+     * @param {GeoTag} geotag The geotag to add
+     */
+    addGeoTag(geotag){
+        this.#geotags.push(geotag);
+    }
 
-    // TODO: ... your code here ...
+    /**
+     * Remove geotags from the store by name.
+     * @param {string} name The name of the geotag to remove
+     */
+    removeGeoTag(name){
+        this.#geotags = this.#geotags.filter(geotag => geotag.name !== name);
+    }
+
+    /**
+     * Get all geotags in the proximity of a location.
+     * @param {number} latitude The latitude of the location
+     * @param {number} longitude The longitude of the location
+     * @param {number} radius The radius of the proximity
+     * @returns {GeoTag[]} The geotags in the proximity
+     */
+    getNearbyGeoTags(latitude, longitude, radius){
+        const distance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2);
+        nearByGeoTags = this.#geotags.filter(
+            geotag => distance(geotag) <= radius
+        );
+        return nearByGeoTags;
+
+            }
+    
 
 }
 
