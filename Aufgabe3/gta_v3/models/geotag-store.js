@@ -1,5 +1,7 @@
 // File origin: VS1LAB A3
 
+
+
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -25,6 +27,13 @@
  */
 class InMemoryGeoTagStore{
     #geotags = [];
+    #geotagExamples = tagList;
+
+    addGeotagExamples(){
+        for (const tag of this.#geotagExamples){
+            this.#geotags.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3]));
+        }
+    }
     /**
      * Add a geotag to the store.
      * @param {GeoTag} geotag The geotag to add
@@ -68,7 +77,7 @@ class InMemoryGeoTagStore{
     searchNearbyGeoTags(latitude, longitude, radius, keyword){
         const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
         const matchesKeyword = (geotag) => geotag.name.includes(keyword) || geotag.hashtag.includes(keyword);
-        
+
         matchingNearbyGeoTags = this.getNearbyGeoTags(latitude, longitude, radius).filter(
             geotag => isValidDistance(geotag) && matchesKeyword(geotag)
         )
