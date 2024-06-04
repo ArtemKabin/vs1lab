@@ -19,12 +19,13 @@ function updateLocation() {
     // Check if the latitude and longitude form fields have values
     const latitude = document.getElementById('latitude').value;
     const longitude = document.getElementById('longitude').value;
-
+    var taglist_json = document.getElementById('map').getAttribute('data-tags');
+    var taglist = JSON.parse(taglist_json);
     if (latitude && longitude) {
         // If the form fields have values, update the map and markers with the provided coordinates
-        const mapManager = new MapManager();
-        mapManager.initMap(latitude, longitude);
-        mapManager.updateMarkers(latitude, longitude);
+        // const mapManager = new MapManager();
+        // mapManager.initMap(latitude, longitude);
+        // mapManager.updateMarkers(latitude, longitude,taglist);
     } else {
         // If the form fields are empty, call LocationHelper.findLocation to retrieve the current location
         LocationHelper.findLocation((location) => {
@@ -33,10 +34,10 @@ function updateLocation() {
 
             const mapManager = new MapManager();
             mapManager.initMap(location.latitude, location.longitude);
-            mapManager.updateMarkers(location.latitude, location.longitude);
+            mapManager.updateMarkers(location.latitude, location.longitude,taglist);
 
-            document.getElementById('latitude').value = location.latitude;
-            document.getElementById('longitude').value = location.longitude;
+            latitude = location.latitude;
+            longitude = location.longitude;
             document.getElementById('latitudediscsearch').value = location.latitude;
             document.getElementById('longitudediscsearch').value = location.longitude;
         });
