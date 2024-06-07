@@ -39,7 +39,7 @@
                     <legend>Add Geo-Tag</legend>
                     <!-- ... your code here ... -->
                     <label for="latitude">Latitude:</label><br>
-                    <input type="number" id="latitude" name="latitude"  placeholder="12.12345" min="-90" max="90" disabled required><br>
+                    <input type="number" id="latitude" name="latitude" value="" placeholder="12.12345" min="-90" max="90" disabled required><br>
                     <label for="longitude">Longitude:</label><br>
                     <input type="number" id="longitude" name="longitude" placeholder="1.12345" disabled required><br>
                     <label for="name">Name:</label><br>
@@ -84,7 +84,7 @@
                     </ul>
                 </div>
 
-                <div id ="map" class="discovery__map col-8" data-tags="JSON.stringify(taglist)" >
+                <div id ="map" class="discovery__map col-8" data-tags="JSON.stringify(taglist)">
                     <img src="./images/mapview.jpg" alt="a map with locations" id="mapView" />
                     <span>Result map</span>
                 </div>
