@@ -43,7 +43,8 @@ app.use(express.urlencoded({ extended: false }));
  */
 
 // TODO: ... your code here ... (Statische Dateien bereitstellen)
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'))); //Absoluter Pfad, egal aus welchem Verzeichnis man startet
+//app.use(express.static('public')) 
 
 
 // Set dedicated script for routing
