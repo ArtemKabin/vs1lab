@@ -38,6 +38,10 @@ class InMemoryGeoTagStore{
     }
 
     get getTags(){return this.#geotags;}
+
+    isValidDistance(latitude, longitude,radius){
+        return (geotag) => Math.sqrt((geotag.location.latitude - latitude)**2 + (geotag.location.longitude - longitude)**2) <= radius;
+    }
   
     fillGeoTagsWithExamples(){
         for (const tag of this.#geotagExamples){
@@ -68,10 +72,11 @@ class InMemoryGeoTagStore{
      * @returns {GeoTag[]} The geotags in the proximity
      */
     getNearbyGeoTags(latitude, longitude, radius){
-        const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
+        // const isValidDistance = (geotag) => Math.sqrt((geotag.location.latitude - latitude)**2 + (geotag.location.longitude - longitude)**2) <= radius;
+        const isValid = this.isValidDistance(latitude, longitude,radius);
 
         return  this.#geotags.filter(
-            geotag => isValidDistance(geotag)
+            geotag => isValid(geotag)
         );
         // return nearByGeoTags;
     }
@@ -85,14 +90,18 @@ class InMemoryGeoTagStore{
      * @returns {GeoTag[]} The geotags in the proximity that match the keyword
      */
     searchNearbyGeoTags(latitude, longitude, radius, keyword){
-        const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
+        // const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
+        const isValid = this.isValidDistance(latitude, longitude,radius);
+
         const matchesKeyword = (geotag) => geotag.name.includes(keyword) || geotag.hashtag.includes(keyword);
 
         return this.getNearbyGeoTags(latitude, longitude, radius).filter(
-            geotag => isValidDistance(geotag) && matchesKeyword(geotag)
+            geotag => isValid(geotag) && matchesKeyword(geotag)
         )
         
-    }    
+    }  
+    
+
 }
 
 module.exports = InMemoryGeoTagStore
