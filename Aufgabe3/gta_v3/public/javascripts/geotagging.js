@@ -26,23 +26,9 @@ function updateLocation() {
     var taglist_json = document.getElementById('map').getAttribute('data-tags');
     let taglist;
     if(taglist_json){
-        taglist = JSON.parse(taglist_json);
-
-        
+        taglist = JSON.parse(taglist_json);      
     }
     if (mapManager && taglist) {
-    // if (latitude && longitude) {
-        // If the form fields have values, update the map and markers with the provided coordinates
-        // const mapManager = new MapManager();
-        // mapManager.initMap(latitude, longitude);
-        // map.updateMarkers(+lat, +long, tagList.map(({name, lat, long}) => ({
-        //     name: name,
-        //     // function args typing is wrong! location is missing
-        //     location: {
-        //         latitude: lat,
-        //         longitude: long
-        //     },
-        // })));
         mapManager.updateMarkers(latitude, longitude,taglist);
     } else {
         // If the form fields are empty, call LocationHelper.findLocation to retrieve the current location
