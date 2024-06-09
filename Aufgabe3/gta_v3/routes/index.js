@@ -33,6 +33,8 @@ var geoTagInstance = new GeoTag();
 const GeoTagStore = require('../models/geotag-store');
 var geoTagStoreInstance = new GeoTagStore();
 
+const Location = require('../models/location');
+
 /**
  * Route '/' for HTTP 'GET' requests.
  * (http://expressjs.com/de/4x/api.html#app.get.method)
@@ -65,11 +67,12 @@ router.get('/', (req, res) => {
 // TODO: ... your code here ...
 router.post('/tagging', (req, res) => {
   const { name, latitude, longitude , hashtag} = req.body;
-  const newGeoTag = new GeoTag(name, latitude, longitude,hashtag);
+  const newGeoTag = new GeoTag(new Location(latitude, longitude),name,hashtag);
   geoTagStoreInstance.addGeoTag(newGeoTag);
 
-  const nearbyTags = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,100000);
-  res.render('index', { taglist: nearbyTags });
+  // var nearbyTags = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,100000);
+  // res.render('index', { taglist: nearbyTags });
+  res.render('index', { taglist: geoTagStoreInstance.getTags });
 });
 
 /**
