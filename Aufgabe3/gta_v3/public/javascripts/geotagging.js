@@ -22,8 +22,11 @@ function updateLocation() {
     // var latitude = document.getElementById('latitude').value;
     // var longitude = document.getElementById('longitude').value;
     var taglist_json = document.getElementById('map').getAttribute('data-tags');
-    // var taglist = JSON.parse(taglist_json);
-    if (mapManager) {
+    var taglist;
+    if(!taglist_json){
+        taglist = JSON.parse(taglist_json);
+    }
+    if (mapManager && taglist) {
     // if (latitude && longitude) {
         // If the form fields have values, update the map and markers with the provided coordinates
         // const mapManager = new MapManager();
@@ -37,8 +40,12 @@ function updateLocation() {
             mapManager = new MapManager();
             
             mapManager.initMap(location.latitude, location.longitude);
-            mapManager.updateMarkers(location.latitude, location.longitude);
-            // mapManager.updateMarkers(location.latitude, location.longitude,taglist);
+            if(taglist){
+                mapManager.updateMarkers(location.latitude, location.longitude,taglist);
+            }else {
+
+                mapManager.updateMarkers(location.latitude, location.longitude);
+            }
 
             document.getElementById('latitude').value = location.latitude;
             document.getElementById('longitude').value = location.longitude;

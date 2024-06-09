@@ -46,7 +46,7 @@ var geoTagStoreInstance = new GeoTagStore();
 router.get('/', (req, res) => {
   res.render('index', { taglist: [] })
   // TODO: get back and activate super powerrs
-  geoTagStoreInstance.addGeotagExamples();
+  // geoTagStoreInstance.addGeotagExamples();
 });
 
 /**
