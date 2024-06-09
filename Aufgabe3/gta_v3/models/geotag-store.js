@@ -1,5 +1,7 @@
 // File origin: VS1LAB A3
 
+
+
 /**
  * This script is a template for exercise VS1lab/Aufgabe3
  * Complete all TODOs in the code documentation.
@@ -24,9 +26,62 @@
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
+    #geotags = [];
+    #geotagExamples = tagList;
 
-    // TODO: ... your code here ...
+    addGeotagExamples(){
+        for (const tag of this.#geotagExamples){
+            this.#geotags.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3]));
+        }
+    }
+    /**
+     * Add a geotag to the store.
+     * @param {GeoTag} geotag The geotag to add
+     */
+    addGeoTag(geotag){
+        this.#geotags.push(geotag);
+    }
 
+    /**
+     * Remove geotags from the store by name.
+     * @param {string} name The name of the geotag to remove
+     */
+    removeGeoTag(name){
+        this.#geotags = this.#geotags.filter(geotag => geotag.name !== name);
+    }
+
+    /**
+     * Get all geotags in the proximity of a location.
+     * @param {number} latitude The latitude of the location
+     * @param {number} longitude The longitude of the location
+     * @param {number} radius The radius of the proximity
+     * @returns {GeoTag[]} The geotags in the proximity
+     */
+    getNearbyGeoTags(latitude, longitude, radius){
+        const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
+
+        nearByGeoTags = this.#geotags.filter(
+            geotag => isValidDistance(geotag)
+        );
+        return nearByGeoTags;
+    }
+
+    /**
+     * Search geotags in the proximity of a location that match a keyword.
+     * @param {number} latitude The latitude of the location
+     * @param {number} longitude The longitude of the location
+     * @param {number} radius The radius of the proximity
+     * @param {string} keyword The keyword to match
+     * @returns {GeoTag[]} The geotags in the proximity that match the keyword
+     */
+    searchNearbyGeoTags(latitude, longitude, radius, keyword){
+        const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
+        const matchesKeyword = (geotag) => geotag.name.includes(keyword) || geotag.hashtag.includes(keyword);
+
+        matchingNearbyGeoTags = this.getNearbyGeoTags(latitude, longitude, radius).filter(
+            geotag => isValidDistance(geotag) && matchesKeyword(geotag)
+        )
+    }    
 }
 
 module.exports = InMemoryGeoTagStore
