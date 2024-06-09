@@ -28,10 +28,17 @@ const GeoTag = require('../models/geotag');
  * - Keyword matching should include partial matches from name or hashtag fields. 
  */
 class InMemoryGeoTagStore{
+   
     #geotags = [];
     #geotagExamples = GeoTagExamples.tagList;
 
-    addGeotagExamples(){
+    constructor(){
+        this.fillGeoTagsWithExamples();  
+    }
+
+    get getTags(){return this.#geotags;}
+  
+    fillGeoTagsWithExamples(){
         for (const tag of this.#geotagExamples){
             this.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3]));
         }
@@ -62,10 +69,10 @@ class InMemoryGeoTagStore{
     getNearbyGeoTags(latitude, longitude, radius){
         const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
 
-        var nearByGeoTags = this.#geotags.filter(
+        return  this.#geotags.filter(
             geotag => isValidDistance(geotag)
         );
-        return nearByGeoTags;
+        // return nearByGeoTags;
     }
 
     /**
@@ -80,9 +87,10 @@ class InMemoryGeoTagStore{
         const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
         const matchesKeyword = (geotag) => geotag.name.includes(keyword) || geotag.hashtag.includes(keyword);
 
-        var matchingNearbyGeoTags = this.getNearbyGeoTags(latitude, longitude, radius).filter(
+        return this.getNearbyGeoTags(latitude, longitude, radius).filter(
             geotag => isValidDistance(geotag) && matchesKeyword(geotag)
         )
+        
     }    
 }
 
