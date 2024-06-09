@@ -9,6 +9,7 @@
 
 const GeoTagExamples = require('./geotag-examples');
 const GeoTag = require('../models/geotag');
+const Location = require('../models/location');
 /**
  * A class for in-memory-storage of geotags
  * 
@@ -40,7 +41,7 @@ class InMemoryGeoTagStore{
   
     fillGeoTagsWithExamples(){
         for (const tag of this.#geotagExamples){
-            this.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3]));
+            this.addGeoTag(new GeoTag(new Location(tag[1], tag[2]), tag[0], tag[3]));
         }
     }
     /**
