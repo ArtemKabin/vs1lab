@@ -94,10 +94,10 @@ router.post('/tagging', (req, res) => {
 // TODO: ... your code here ...
 router.post('/discovery', (req, res) => {
   const { latitude, longitude, searchterm } = req.body;
-  let results = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,100000);
+  let results = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,0.4);
 
   if(searchterm){
-    results = geoTagStoreInstance.searchNearbyGeoTags(latitude, longitude, 100000, searchterm);
+    results = geoTagStoreInstance.searchNearbyGeoTags(latitude, longitude, 0.4, searchterm);
   }
 
   res.render('index', { taglist: results });
