@@ -44,9 +44,7 @@ var geoTagStoreInstance = new GeoTagStore();
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: [] })
-  // TODO: get back and activate super powerrs
-  // geoTagStoreInstance.addGeotagExamples();
+  res.render('index', { taglist: geoTagStoreInstance.getTags});
 });
 
 /**
@@ -66,11 +64,11 @@ router.get('/', (req, res) => {
 
 // TODO: ... your code here ...
 router.post('/tagging', (req, res) => {
-  const { name, latitude, longitude } = req.body;
-  const newGeoTag = new GeoTag(name, latitude, longitude);
+  const { name, latitude, longitude , hashtag} = req.body;
+  const newGeoTag = new GeoTag(name, latitude, longitude,hashtag);
   geoTagStoreInstance.addGeoTag(newGeoTag);
 
-  const nearbyTags = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,1);
+  const nearbyTags = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,100000);
   res.render('index', { taglist: nearbyTags });
 });
 
