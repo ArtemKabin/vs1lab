@@ -7,6 +7,8 @@
  * Complete all TODOs in the code documentation.
  */
 
+const GeoTagExamples = require('./geotag-examples');
+const GeoTag = require('../models/geotag');
 /**
  * A class for in-memory-storage of geotags
  * 
@@ -27,11 +29,11 @@
  */
 class InMemoryGeoTagStore{
     #geotags = [];
-    #geotagExamples = tagList;
+    #geotagExamples = GeoTagExamples.tagList;
 
     addGeotagExamples(){
         for (const tag of this.#geotagExamples){
-            this.#geotags.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3]));
+            this.addGeoTag(new GeoTag(tag[1], tag[2], tag[0], tag[3]));
         }
     }
     /**
@@ -60,7 +62,7 @@ class InMemoryGeoTagStore{
     getNearbyGeoTags(latitude, longitude, radius){
         const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
 
-        nearByGeoTags = this.#geotags.filter(
+        var nearByGeoTags = this.#geotags.filter(
             geotag => isValidDistance(geotag)
         );
         return nearByGeoTags;
@@ -78,7 +80,7 @@ class InMemoryGeoTagStore{
         const isValidDistance = (geotag) => Math.sqrt((geotag.latitude - latitude)**2 + (geotag.longitude - longitude)**2) <= radius;
         const matchesKeyword = (geotag) => geotag.name.includes(keyword) || geotag.hashtag.includes(keyword);
 
-        matchingNearbyGeoTags = this.getNearbyGeoTags(latitude, longitude, radius).filter(
+        var matchingNearbyGeoTags = this.getNearbyGeoTags(latitude, longitude, radius).filter(
             geotag => isValidDistance(geotag) && matchesKeyword(geotag)
         )
     }    
