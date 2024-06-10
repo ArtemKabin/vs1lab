@@ -40,12 +40,12 @@
                     <!-- ... your code here ... -->
                     <label for="latitude">Latitude:</label><br>
                     <!-- // TODO: FIX BACK -->
-                    <input type="number" id="latitude" name="latitude" value="49.013790" placeholder="12.12345" disabled><br>
-                    <!-- <input type="number" id="latitude" name="latitude"  value="12.12345" min="-90" max="90"  required><br> -->
+                    <!-- <input type="number" id="latitude" name="latitude" value="49.013790" placeholder="12.12345" disabled><br> -->
+                    <input type="number" id="latitude" name="latitude"  value="12.12345" min="-90" max="90" disabled required><br>
                     <label for="longitude">Longitude:</label><br>
                     <!-- // TODO: FIX BACK -->
-                    <input type="number" id="longitude" name="longitude" value="8.404435" placeholder="1.12345" disabled><br>
-                    <!-- <input type="number" id="longitude" name="longitude" value="1.12345"  required><br> -->
+                    <!-- <input type="number" id="longitude" name="longitude" value="8.404435" placeholder="1.12345" disabled><br> -->
+                    <input type="number" id="longitude" name="longitude" value="1.12345" disabled required><br>
                     <label for="name">Name:</label><br>
                     <input type="text" id="name" name="name" placeholder="e.g. Karlsruhe" maxlength="10" pattern="[a-zA-Z]+" required><br>
                     <label for="hashtag">Hashtag:</label><br>
@@ -83,7 +83,7 @@
                 <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">
                         <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-                            <li><%= gtag.name %> ( <%= gtag.latitude %>,<%= gtag.longitude %>) <%= gtag.hashtag %> </li>
+                            <li><%= gtag.name %> ( <%= gtag.location.latitude %>,<%= gtag.location.longitude %>) <%= gtag.hashtag %> </li>
                         <% }); %>
                     </ul>
                 </div>
