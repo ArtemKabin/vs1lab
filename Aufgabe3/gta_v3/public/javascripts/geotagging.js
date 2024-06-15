@@ -16,36 +16,28 @@ console.log("The geoTagging script is going to start...");
  * It is called once the page has been fully loaded.
  */
 function updateLocation() {
-    // Check if the latitude and longitude form fields have values
-    const latitude = document.getElementById('latitude').value;
-    const longitude = document.getElementById('longitude').value;
+ 
+   
     var taglist_json = document.getElementById('map').getAttribute('data-tags');
-    var taglist = JSON.parse(taglist_json);
-    if (latitude && longitude) {
-        // If the form fields have values, update the map and markers with the provided coordinates
-        // const mapManager = new MapManager();
-        // mapManager.initMap(latitude, longitude);
-        // mapManager.updateMarkers(latitude, longitude,taglist);
-    } else {
-        // If the form fields are empty, call LocationHelper.findLocation to retrieve the current location
+    let taglist;
+    if(taglist_json){
+        taglist = JSON.parse(taglist_json);      
+    }
         LocationHelper.findLocation((location) => {
             var mapContainer = document.getElementById('map');
             mapContainer.replaceChildren();
-
-            const mapManager = new MapManager();
+            var mapManager = new MapManager();
             mapManager.initMap(location.latitude, location.longitude);
             mapManager.updateMarkers(location.latitude, location.longitude,taglist);
 
-            latitude = location.latitude;
-            longitude = location.longitude;
+            document.getElementById('latitude').value = location.latitude;
+            document.getElementById('longitude').value = location.longitude;
             document.getElementById('latitudediscsearch').value = location.latitude;
             document.getElementById('longitudediscsearch').value = location.longitude;
         });
-    }
 }
 
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
     updateLocation();
-    // alert("Please change the script 'geotagging.js'");
 });

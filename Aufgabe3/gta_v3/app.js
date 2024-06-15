@@ -42,9 +42,17 @@ app.use(express.urlencoded({ extended: false }));
  * Test the result in a browser here: 'http://localhost:3000/'.
  */
 
-// TODO: ... your code here ...
+// TODO: ... your code here ... (Statische Dateien bereitstellen)
+app.use(express.static(path.join(__dirname, 'public'))); //Absoluter Pfad, egal aus welchem Verzeichnis man startet
+app.get('/favicon.ico', (req, res) => res.status(204));
+// app.use(favicon(__dirname + '/favicon.ico')); 
+//app.use(express.static('public')) 
+
+
 // Set dedicated script for routing
 app.use('/', indexRouter);
+// app.use('/tagging', indexRouter);
+// app.use('/discovery', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
