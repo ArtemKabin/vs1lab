@@ -44,6 +44,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // TODO: ... your code here ... (Statische Dateien bereitstellen)
 app.use(express.static(path.join(__dirname, 'public'))); //Absoluter Pfad, egal aus welchem Verzeichnis man startet
+app.get('/favicon.ico', (req, res) => res.status(204));
+// app.use(favicon(__dirname + '/favicon.ico')); 
 //app.use(express.static('public')) 
 
 
