@@ -255,7 +255,30 @@ a {
     width: 100%;
     margin: 10% 10% 10% 0;
   }
-}/*
+}
+@media screen and (max-width: 500px) {
+  .main {
+    flex-direction: column;
+  }
+  .discovery {
+    display: flex;
+    /* flex-direction: column; */
+    /* margin: 10% 10% 10% 10%; */
+  }
+  .discovery__wrapper{
+    /* flex-direction: column; */
+  }
+
+  .discovery__taglist{
+    /* width: 100%; */
+    
+  }
+  #map{
+    width: 100%;
+    margin: 10% 10% 10% 0;
+  }
+}
+/*
   File origin: VS1LAB A1b  
 
   CSS style is BEM. Classes used for CSS, IDs for JavaScript querying (future use).

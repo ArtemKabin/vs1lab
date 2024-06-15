@@ -46,7 +46,7 @@ const Location = require('../models/location');
 
 // TODO: extend the following route example if necessary
 router.get('/', (req, res) => {
-  res.render('index', { taglist: geoTagStoreInstance.getTags});
+  res.render('index', { taglist: geoTagStoreInstance.getTags, searchTerm: ""});
 });
 
 /**
@@ -72,7 +72,7 @@ router.post('/tagging', (req, res) => {
 
   // var nearbyTags = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,100000);
   // res.render('index', { taglist: nearbyTags });
-  res.render('index', { taglist: geoTagStoreInstance.getTags });
+  res.render('index', { taglist: geoTagStoreInstance.getTags ,searchTerm: ""});
 });
 
 /**
@@ -100,7 +100,7 @@ router.post('/discovery', (req, res) => {
     results = geoTagStoreInstance.searchNearbyGeoTags(latitude, longitude, 0.4, searchterm);
   }
 
-  res.render('index', { taglist: results });
+  res.render('index', { taglist: results, searchTerm: searchterm});
 });
 
 module.exports = router;
