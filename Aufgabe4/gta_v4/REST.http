@@ -38,7 +38,7 @@ content-type: application/json
 ###
 
 # DELETE /api/geotags/:id
-DELETE http://localhost:3000/api/geotags/11 HTTP/1.1
+DELETE http://localhost:3000/api/geotags/9 HTTP/1.1
 content-type: application/json
 
 ###

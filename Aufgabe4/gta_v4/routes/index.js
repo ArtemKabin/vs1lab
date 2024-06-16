@@ -119,9 +119,9 @@ router.get('/api/geotags', (req, res) => {
   let results;
 
   if (searchterm) {
-    results = geoTagStoreInstance.searchNearbyGeoTags(latitude, longitude,20,searchterm);
+    results = geoTagStoreInstance.searchNearbyGeoTags(latitude, longitude,50,searchterm);
   } else {
-    results = geoTagInstance.getNearbyGeoTags(latitude, longitude, 20);
+    results = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude, 50);
   }
 
   //console.log(results);
@@ -219,7 +219,6 @@ router.put('/api/geotags/:id', (req, res) => {
  */
 router.delete('/api/geotags/:id', (req, res) => {
   const { id } = req.params;
-
   const deletedTag = geoTagStoreInstance.removeGeoTagById(id);
   res.status(201).json(deletedTag);
 });
