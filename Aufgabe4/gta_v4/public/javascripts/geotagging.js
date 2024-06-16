@@ -53,25 +53,29 @@ tagForm.addEventListener('submit', function(event){
 
     //Create a new tag
     const tag = {
-        name: name,
         latitude: latitude, 
         longitude: longitude,
+        name: name,
         hashtag: hashtag
     }
 
     //Send the tag to the server
-    fetch('/tagging', {
+    fetch('/api/geotags', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'
         },
         body: JSON.stringify(tag)
     })
-    //.then(response => response.json())
+    .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        
-        
+        var taglist_json = document.getElementById('map').getAttribute('data-tags');
+        let taglist;
+        taglist = JSON.parse(taglist_json);
+        taglist.push(data);
+        document.getElementById('map').setAttribute('data-tags', JSON.stringify(taglist));
+    
     }
     )
     .catch((error) => {
