@@ -16,12 +16,13 @@ class GeoTag {
     /**
     /**
      * Create a new GeoTag object.
+     * @param {number} id The ID of the geotag
      * @param {Location} location of the geotag (latitude, longitude
      * @param {string} name The name of the geotag
      * @param {string} hashtag The hashtag of the geotag
      */
-    constructor(location, name, hashtag) {
-        // location = new LocationHelper(latitude, longitude);
+    constructor(id, location, name, hashtag) {
+        this.id = id;
         this.location = location;
         this.name = name;
         this.hashtag = hashtag;
