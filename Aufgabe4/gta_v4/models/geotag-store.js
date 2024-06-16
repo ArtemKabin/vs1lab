@@ -70,7 +70,7 @@ class InMemoryGeoTagStore {
      * @returns {GeoTag|null} The removed geotag, or null if not found
      */
     removeGeoTagById(id) {
-        const tagToDelete = getGeoTagById(id);
+        const tagToDelete = this.getGeoTagById(id);
         if (tagToDelete !== null)
             this.#geotags = this.#geotags.filter(geotag => geotag.id !== id);
         return tagToDelete || null;

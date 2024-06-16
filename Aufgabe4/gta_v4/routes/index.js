@@ -113,7 +113,7 @@ router.post('/discovery', (req, res) => {
  */
 
 router.get('/api/geotags', (req, res) => {
-  const { searchterm, latitude, longitude } = req.body;
+  const { searchterm, latitude, longitude } = req.params;
   let results;
 
   if (searchterm) {
@@ -124,7 +124,7 @@ router.get('/api/geotags', (req, res) => {
     results = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude, 40);
   }
 
-  res.json(results);
+  res.status(201).json(results);
 });
 /**
  * Route '/api/geotags' for HTTP 'POST' requests.
@@ -144,8 +144,11 @@ router.post('/api/geotags', (req, res) => {
   res.location('/api/geotags/${newGeoTag.id}');
   
   // Render the new resource as JSON in the response
-  res.json(newGeoTag);
+  res.status(201).json(newGeoTag);
 });
+
+
+
 
 
 /**
@@ -161,12 +164,11 @@ router.get('/api/geotags/:id', (req, res) => {
   const { id } = req.params;
 
   // Find the tag with the corresponding ID
-  // TODO: add it to the store functions
   const tag = geoTagStoreInstance.getGeoTagById(id);
 
   // If the tag is found, render it as JSON in the response
   if (tag) {
-    res.json(tag);
+    res.status(201).json(tag);
   } else {
     res.status(404).json({ error: 'Tag not found' });
   }
@@ -196,7 +198,7 @@ router.put('/api/geotags/:id', (req, res) => {
   // If the tag is found, update its values
   if (tag) {
     // Render the updated tag as JSON in the response
-    res.json(tag);
+    res.status(201).json(tag);
   } else {
     // If the tag is not found, return a 404 status code
     res.status(404).json({ error: 'Tag not found' });
@@ -218,7 +220,7 @@ router.delete('/api/geotags/:id', (req, res) => {
   const { id } = req.params;
 
   const deletedTag = geoTagStoreInstance.removeGeoTagById(id);
-  res.json(deletedTag);
+  res.status(201).json(deletedTag);
 });
 
 

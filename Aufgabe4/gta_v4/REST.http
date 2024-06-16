@@ -1,0 +1,50 @@
+# GET /api/geotags
+GET http://localhost:3000/api/geotags HTTP/1.1
+content-type: application/json
+
+###
+
+# POST /api/geotags ID = 12
+POST http://localhost:3000/api/geotags HTTP/1.1
+content-type: application/json
+
+{
+    "latitude": "49.016171",
+    "longitude": "8.390155",
+    "name": "Building M (REST)",
+    "hashtag": "#campusREST"
+}
+
+###
+
+# GET /api/geotags/:id
+GET http://localhost:3000/api/geotags/1 HTTP/1.1
+content-type: application/json
+
+###
+
+# PUT /api/geotags/:id
+PUT http://localhost:3000/api/geotags/11 HTTP/1.1
+content-type: application/json
+
+{
+    "latitude": "49.016111",
+    "longitude": "8.390111",
+    "name": "updated M",
+    "hashtag": "#campusUPDATED"
+    
+}
+
+###
+
+# DELETE /api/geotags/:id
+DELETE http://localhost:3000/api/geotags/11 HTTP/1.1
+content-type: application/json
+
+###
+
+# GET /api/geotags
+GET http://localhost:3000/api/geotags HTTP/1.1
+content-type: application/json
+
+###
