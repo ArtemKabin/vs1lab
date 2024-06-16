@@ -53,8 +53,26 @@ tagForm.addEventListener('submit', function(event){
     const name = document.getElementById('name').value;
     const hashtag = document.getElementById('hashtag').value;
 
+    //Create a new Location
+    var location = new Location(latitude, longitude);
+
     //Create a new tag
-    var tag = new GeoTag(latitude, longitude, name, hashtag);
+    var tag = new GeoTag(location, name, hashtag);
+
+    //Send the tag to the server
+    fetch('/tagging', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(tag)
+    })
+    .then(response => response.json())
+    .then(data => 
+        console.log('Success:', data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 });
 
 discoveryFilterForm.addEventListener('submit', function(event){
