@@ -55,8 +55,8 @@ class InMemoryGeoTagStore {
      * @returns {void}
      */
     createGeoTagWithParams(latitude, longitude, name, hashtag) {
-        const geotag = new GeoTag(new Location(latitude, longitude), name, hashtag);
-        geotag.id = this.#idCounter++;
+        const geotag = new GeoTag(this.#idCounter,new Location(latitude, longitude), name, hashtag);
+        this.#idCounter++;
         this.#geotags.push(geotag);
     }
 
