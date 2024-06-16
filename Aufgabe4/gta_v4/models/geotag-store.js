@@ -73,7 +73,7 @@ class InMemoryGeoTagStore {
         const tagToDelete = this.getGeoTagById(id);
         console.log(tagToDelete);
         if (tagToDelete !== null)
-            this.#geotags = this.#geotags.filter(geotag => geotag.id !== id);
+            this.#geotags = this.#geotags.filter(geotag => geotag.id.toString() !== id.toString());
         return tagToDelete || null;
     }
 
