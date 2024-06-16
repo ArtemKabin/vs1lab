@@ -64,7 +64,7 @@ router.get('/', (req, res) => {
 
 
 router.post('/tagging', (req, res) => {
-  const { name, latitude, longitude , hashtag} = req.body;
+  const {  latitude, longitude ,name, hashtag} = req.body;
   geoTagStoreInstance.createGeoTagWithParams(latitude, longitude,name,hashtag);
   console.log(geoTagStoreInstance.getTags);
   res.render('index', { taglist: geoTagStoreInstance.getTags ,searchTerm: ""});
@@ -113,7 +113,7 @@ router.post('/discovery', (req, res) => {
  */
 
 router.get('/api/geotags', (req, res) => {
-  const { searchterm, latitude, longitude } = req.query;
+  const { searchterm, latitude, longitude } = req.body;
   let results;
 
   if (searchterm) {
@@ -143,7 +143,7 @@ router.post('/api/geotags', (req, res) => {
   const newGeoTag = geoTagStoreInstance.createGeoTagWithParams(lat,long,name,hashtag);
   
   // Set the location header with the URL of the new resource
-  res.location(`/api/geotags/${newGeoTag.id}`);
+  res.location('/api/geotags/${newGeoTag.id}');
   
   // Render the new resource as JSON in the response
   res.json(newGeoTag);
