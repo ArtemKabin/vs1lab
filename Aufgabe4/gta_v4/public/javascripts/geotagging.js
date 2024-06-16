@@ -70,6 +70,7 @@ tagForm.addEventListener('submit', function(event){
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
+        //Adding the new tag to the map
         var taglist_json = document.getElementById('map').getAttribute('data-tags');
         let taglist;
         taglist = JSON.parse(taglist_json);
@@ -77,6 +78,7 @@ tagForm.addEventListener('submit', function(event){
         document.getElementById('map').setAttribute('data-tags', JSON.stringify(taglist));
         mapManager.updateMarkers(latitude, longitude, taglist);
 
+        //Adding the new tag to the discovery results
         var discoveryResults = document.getElementById('discoveryResults');
         var tag = document.createElement('li');
         tag.textContent = `ID: ${data.id} , 
@@ -94,6 +96,46 @@ tagForm.addEventListener('submit', function(event){
 
 discoveryFilterForm.addEventListener('submit', function(event){
     event.preventDefault(); // Prevent the default form submission
+
+    //Get formula data
+    const latitude = document.getElementById('latitudediscsearch').value;
+    const longitude = document.getElementById('longitudediscsearch').value;
+    const searchterm = document.getElementById('searchterm').value;
+
+    let params = new URLSearchParams({
+    searchterm: searchterm,
+    longitude: longitude,
+    latitude: latitude
+    });
+
+    fetch(`/api/geotags?${params}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        //Update the map with the search results
+        mapManager.updateMarkers(latitude, longitude, data);
+
+        //Update the discovery results
+        var discoveryResults = document.getElementById('discoveryResults');
+        discoveryResults.replaceChildren();
+        for (const tag of data) {
+            var tagElement = document.createElement('li');
+            tagElement.textContent = `ID: ${tag.id} , 
+            ${tag.name} (${tag.location.latitude}, 
+            ${tag.location.longitude}) ${tag.hashtag}`;
+            discoveryResults.appendChild(tagElement);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+
 });
 
 // Wait for the page to fully load its DOM content, then call updateLocation

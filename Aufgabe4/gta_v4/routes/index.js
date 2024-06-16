@@ -66,7 +66,6 @@ router.get('/', (req, res) => {
 router.post('/tagging', (req, res) => {
   const {  latitude, longitude ,name, hashtag} = req.body;
   geoTagStoreInstance.createGeoTagWithParams(latitude, longitude,name,hashtag);
-  console.log(geoTagStoreInstance.getTags);
   res.render('index', { taglist: geoTagStoreInstance.getTags ,searchTerm: ""});
 });
 
@@ -113,7 +112,9 @@ router.post('/discovery', (req, res) => {
  */
 
 router.get('/api/geotags', (req, res) => {
-  const { searchterm, latitude, longitude } = req.body;
+  const { searchterm, latitude, longitude } = req.query;
+  console.log(req.query);
+  console.log(searchterm, latitude, longitude);
   let results;
 
   if (searchterm) {
