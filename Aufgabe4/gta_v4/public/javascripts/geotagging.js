@@ -9,9 +9,6 @@
 // Try to find this output in the browser...
 console.log("The geoTagging script is going to start...");
 
-//Import the GeoTag class
-const GeoTag = require('./GeoTag.js');
-const Location = require('./Location.js');
 
 const tagForm = document.getElementById("tag-form");
 const discoveryFilterForm = document.getElementById("discoveryFilterForm");
@@ -53,11 +50,13 @@ tagForm.addEventListener('submit', function(event){
     const name = document.getElementById('name').value;
     const hashtag = document.getElementById('hashtag').value;
 
-    //Create a new Location
-    var location = new Location(latitude, longitude);
 
     //Create a new tag
-    var tag = new GeoTag(location, name, hashtag);
+    const tag = {
+        location: {latitude: latitude, longitude: longitude},
+        name: name,
+        hashtag: hashtag
+    }
 
     //Send the tag to the server
     fetch('/tagging', {
@@ -67,9 +66,12 @@ tagForm.addEventListener('submit', function(event){
         },
         body: JSON.stringify(tag)
     })
-    .then(response => response.json())
-    .then(data => 
-        console.log('Success:', data))
+    //.then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        
+    }
+    )
     .catch((error) => {
         console.error('Error:', error);
     });
