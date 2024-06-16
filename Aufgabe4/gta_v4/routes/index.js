@@ -137,11 +137,9 @@ router.get('/api/geotags', (req, res) => {
  * The new resource is rendered as JSON in the response.
  */
 router.post('/api/geotags', (req, res) => {
-  const { lat,long,name,hashtag } = req.body;
-  
+  const { latitude,longitude,name,hashtag } = req.body;
   // Create a new geotag using the provided data
-  const newGeoTag = geoTagStoreInstance.createGeoTagWithParams(lat,long,name,hashtag);
-  
+  const newGeoTag = geoTagStoreInstance.createGeoTagWithParams(latitude,longitude,name,hashtag);
   // Set the location header with the URL of the new resource
   res.location('/api/geotags/${newGeoTag.id}');
   

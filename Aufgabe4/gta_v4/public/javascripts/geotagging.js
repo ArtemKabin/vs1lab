@@ -29,7 +29,7 @@ function updateLocation() {
         LocationHelper.findLocation((location) => {
             var mapContainer = document.getElementById('map');
             mapContainer.replaceChildren();
-             mapManager = new MapManager();
+            mapManager = new MapManager();
             mapManager.initMap(location.latitude, location.longitude);
             mapManager.updateMarkers(location.latitude, location.longitude,taglist);
 
@@ -75,7 +75,7 @@ tagForm.addEventListener('submit', function(event){
         taglist = JSON.parse(taglist_json);
         taglist.push(data);
         document.getElementById('map').setAttribute('data-tags', JSON.stringify(taglist));
-    
+        mapManager.updateMarkers(latitude, longitude, taglist);
     }
     )
     .catch((error) => {
