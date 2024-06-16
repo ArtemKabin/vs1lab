@@ -65,11 +65,7 @@ router.get('/', (req, res) => {
 
 router.post('/tagging', (req, res) => {
   const { name, latitude, longitude , hashtag} = req.body;
-  const newGeoTag = new GeoTag(new Location(latitude, longitude),name,hashtag);
-  geoTagStoreInstance.addGeoTag(newGeoTag);
-
-  // var nearbyTags = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude,100000);
-  // res.render('index', { taglist: nearbyTags });
+  geoTagStoreInstance.createGeoTagWithParams(latitude, longitude,name,hashtag);
   res.render('index', { taglist: geoTagStoreInstance.getTags ,searchTerm: ""});
 });
 
@@ -140,10 +136,10 @@ router.get('/api/geotags', (req, res) => {
  * The new resource is rendered as JSON in the response.
  */
 router.post('/api/geotags', (req, res) => {
-  const { body } = req;
+  const { lat,long,name,hashtag } = req;
   
   // Create a new geotag using the provided data
-  const newGeoTag = geoTagStoreInstance.createGeoTag(body);
+  const newGeoTag = geoTagStoreInstance.createGeoTagWithParams(lat,long,name,hashtag);
   
   // Set the location header with the URL of the new resource
   res.location(`/api/geotags/${newGeoTag.id}`);
@@ -196,16 +192,10 @@ router.put('/api/geotags/:id', (req, res) => {
   const { name, latitude, longitude, hashtag } = req.body;
 
   // Find the tag with the corresponding ID
-  // TODO: add it to the store functions
-  const tag = geoTagStoreInstance.getGeoTagById(id);
+  const tag = geoTagStoreInstance.updateGeoTag(id,latitude,longitude,name,hashtag);
 
   // If the tag is found, update its values
   if (tag) {
-    tag.name = name;
-    tag.location.latitude = latitude;
-    tag.location.longitude = longitude;
-    tag.hashtag = hashtag;
-
     // Render the updated tag as JSON in the response
     res.json(tag);
   } else {
@@ -227,8 +217,8 @@ router.put('/api/geotags/:id', (req, res) => {
  */
 router.delete('/api/geotags/:id', (req, res) => {
   const { id } = req.params;
-  // TODO: is ID and name same ???
-  const deletedTag = geoTagStoreInstance.removeGeoTag(id);
+
+  const deletedTag = geoTagStoreInstance.removeGeoTagById(id);
   res.json(deletedTag);
 });
 
