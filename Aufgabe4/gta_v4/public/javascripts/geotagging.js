@@ -76,6 +76,13 @@ tagForm.addEventListener('submit', function(event){
         taglist.push(data);
         document.getElementById('map').setAttribute('data-tags', JSON.stringify(taglist));
         mapManager.updateMarkers(latitude, longitude, taglist);
+
+        var discoveryResults = document.getElementById('discoveryResults');
+        var tag = document.createElement('li');
+        tag.textContent = `ID: ${data.id} , 
+        ${data.name} (${data.location.latitude}, 
+        ${data.location.longitude}) ${data.hashtag}`;
+        discoveryResults.appendChild(tag);
     }
     )
     .catch((error) => {
