@@ -9,6 +9,12 @@
 // Try to find this output in the browser...
 console.log("The geoTagging script is going to start...");
 
+//Import the GeoTag class
+const GeoTag = require('./GeoTag.js');
+const Location = require('./Location.js');
+
+const tagForm = document.getElementById("tag-form");
+const discoveryFilterForm = document.getElementById("discoveryFilterForm");
 
 
 /**
@@ -37,7 +43,26 @@ function updateLocation() {
         });
 }
 
+//Event Listeners for the submit forms
+tagForm.addEventListener('submit', function(event){
+    event.preventDefault(); // Prevent the default form submission
+
+    //Get formula data
+    const latitude = document.getElementById('latitude').value;
+    const longitude = document.getElementById('longitude').value;
+    const name = document.getElementById('name').value;
+    const hashtag = document.getElementById('hashtag').value;
+
+    //Create a new tag
+    var tag = new GeoTag(latitude, longitude, name, hashtag);
+});
+
+discoveryFilterForm.addEventListener('submit', function(event){
+    event.preventDefault(); // Prevent the default form submission
+});
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
     updateLocation();
 });
+
