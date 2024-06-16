@@ -12,7 +12,7 @@ console.log("The geoTagging script is going to start...");
 
 const tagForm = document.getElementById("tag-form");
 const discoveryFilterForm = document.getElementById("discoveryFilterForm");
-
+var mapManager = new MapManager();
 
 /**
  * A function to retrieve the current location and update the page.
@@ -29,7 +29,7 @@ function updateLocation() {
         LocationHelper.findLocation((location) => {
             var mapContainer = document.getElementById('map');
             mapContainer.replaceChildren();
-            var mapManager = new MapManager();
+             mapManager = new MapManager();
             mapManager.initMap(location.latitude, location.longitude);
             mapManager.updateMarkers(location.latitude, location.longitude,taglist);
 
