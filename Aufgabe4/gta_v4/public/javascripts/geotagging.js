@@ -53,8 +53,9 @@ tagForm.addEventListener('submit', function(event){
 
     //Create a new tag
     const tag = {
-        location: {latitude: latitude, longitude: longitude},
         name: name,
+        latitude: latitude, 
+        longitude: longitude,
         hashtag: hashtag
     }
 
@@ -62,7 +63,7 @@ tagForm.addEventListener('submit', function(event){
     fetch('/tagging', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+        'Content-Type': 'application/json'
         },
         body: JSON.stringify(tag)
     })
@@ -70,12 +71,15 @@ tagForm.addEventListener('submit', function(event){
     .then(data => {
         console.log('Success:', data);
         
+        
     }
     )
     .catch((error) => {
         console.error('Error:', error);
     });
 });
+
+
 
 discoveryFilterForm.addEventListener('submit', function(event){
     event.preventDefault(); // Prevent the default form submission
