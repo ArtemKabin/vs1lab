@@ -80,8 +80,8 @@ tagForm.addEventListener('submit', function(event){
         var discoveryResults = document.getElementById('discoveryResults');
         var tag = document.createElement('li');
         tag.textContent = `ID: ${data.id} , 
-        ${data.hashtag} (${data.location.latitude}, 
-        ${data.location.longitude}) ${data.name}`;
+        ${data.name} (${data.location.latitude}, 
+        ${data.location.longitude}) ${data.hashtag}`;
         discoveryResults.appendChild(tag);
     }
     )
