@@ -98,6 +98,39 @@ router.post('/discovery', (req, res) => {
   res.render('index', { taglist: results, searchTerm: searchterm});
 });
 
+
+/**
+ * Route '/api/geotags/pages' for HTTP 'GET' requests.
+ * (http://expressjs.com/de/4x/api.html#app.get.method)
+ *
+ * Requests contain the fields of the Discovery form as query.
+ * (http://expressjs.com/de/4x/api.html#req.query)
+ *
+ * As a response, an array with Geo Tag objects is rendered as JSON.
+ * If 'searchterm' is present, it will be filtered by search term.
+ * If 'latitude' and 'longitude' are available, it will be further filtered based on radius.
+ */
+
+router.get('/api/geotags/pages', (req, res) => {
+  const { id,searchterm, latitude, longitude } = req.query;
+  console.log(req.query);
+  console.log(searchterm, latitude, longitude);
+  let results;
+
+  if (searchterm) {
+    results = geoTagStoreInstance.searchNearbyGeoTags(latitude, longitude,50,searchterm);
+  } else {
+    results = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude, 50);
+  }
+
+  // 5 Tags per Page
+   var pagesAmount = Math.ceil(results.length / 5);
+   results = results.slice((id-1)*5, id*5);
+
+  //console.log(results);
+  res.status(201).json(results);
+});
+
 // API routes (A4)
 
 /**

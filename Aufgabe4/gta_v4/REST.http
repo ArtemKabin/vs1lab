@@ -53,3 +53,13 @@ GET http://localhost:3000/api/geotags?latitude=49.016171&longitude=8.390155 HTTP
 content-type: application/json
 
 ###
+
+'/api/geotags/pages/:id'
+
+###
+
+# GET /api/geotags
+GET http://localhost:3000/api/geotags/pages?id=1&latitude=49.016171&longitude=8.390155 HTTP/1.1
+content-type: application/json
+
+###
