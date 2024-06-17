@@ -78,9 +78,11 @@
             <div class="discovery__wrapper row">
                 <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">
-                        <% if (taglist !== undefined) taglist.forEach(function(gtag) { %>
-                            <li>ID: <%= gtag.id %> , <%= gtag.name %> ( <%= gtag.location.latitude %>,<%= gtag.location.longitude %>) <%= gtag.hashtag %> </li>
-                        <% }); %>
+                        <% if (taglist !== undefined) {
+                            taglist.slice(0, 5).forEach(function(gtag) { %>
+                                <li>ID: <%= gtag.id %> , <%= gtag.name %> ( <%= gtag.location.latitude %>,<%= gtag.location.longitude %>) <%= gtag.hashtag %> </li>
+                            <% });
+                        } %>
                     </ul>
                     <div class="pagination" id="pagesCounter">
                         <a id="page-before">&laquo;</a>

@@ -84,7 +84,19 @@ tagForm.addEventListener('submit', function (event) {
             tag.textContent = `ID: ${data.id} , 
         ${data.name} (${data.location.latitude}, 
         ${data.location.longitude}) ${data.hashtag}`;
+        // TODO: implemnet
+
+        var pagesInfo = document.getElementById("pages-info");
+    var pagesInfoData = pagesInfo.getAttribute("data-pagesinfo");
+    var pagesInfoArray = pagesInfoData.split(",");
+    var currentPage = parseInt(pagesInfoArray[0]);
+    var lastPage = parseInt(pagesInfoArray[1]);
+    var geoTagsAmount = parseInt(pagesInfoArray[2]);
+        if(currentPage == lastPage){
+            if(geoTagsAmount % 5 != 0){
             discoveryResults.appendChild(tag);
+            }
+        }
 
             // Update pagination items
             var existingPagesInfo = document.getElementById('pages-info');
