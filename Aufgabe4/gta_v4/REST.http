@@ -59,7 +59,7 @@ content-type: application/json
 ###
 
 # GET /api/geotags
-GET http://localhost:3000/api/geotags/pages?id=1&latitude=49.016171&longitude=8.390155 HTTP/1.1
+GET http://localhost:3000/api/geotags/pages?id=3&searchterm=&latitude=49.016171&longitude=8.390155 HTTP/1.1
 content-type: application/json
 
 ###
