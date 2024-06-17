@@ -82,6 +82,12 @@
                             <li>ID: <%= gtag.id %> , <%= gtag.name %> ( <%= gtag.location.latitude %>,<%= gtag.location.longitude %>) <%= gtag.hashtag %> </li>
                         <% }); %>
                     </ul>
+                    <div class="pagination" id="pagesCounter">
+                        <a href="#">&laquo;</a>
+                            <h3 id="pages-info" data-pagesinfo="<%= activePage %>,<%= (Math. ceil(taglist.length / 5)) %>,<%= taglist.length %>"> <%= activePage %> / <%= (Math. ceil(taglist.length / 5)) %> (<%= taglist.length %>)</h3>
+                        <a href="#">&raquo;</a>
+                    </div>
+
                 </div>
 
                 <div id ="map" class="discovery__map col-8" data-tags="<%=JSON.stringify(taglist)%>">

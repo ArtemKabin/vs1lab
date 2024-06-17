@@ -44,7 +44,7 @@ const InMemoryGeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: geoTagStoreInstance.getTags, searchTerm: ""});
+  res.render('index', { taglist: geoTagStoreInstance.getTags, searchTerm: "",activePage: 1});
 });
 
 

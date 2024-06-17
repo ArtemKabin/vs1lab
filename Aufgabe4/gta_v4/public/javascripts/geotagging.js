@@ -85,6 +85,29 @@ tagForm.addEventListener('submit', function(event){
         ${data.name} (${data.location.latitude}, 
         ${data.location.longitude}) ${data.hashtag}`;
         discoveryResults.appendChild(tag);
+
+        // Update pagination items
+        var existingPagesInfo = document.getElementById('pages-info');
+        var pagesInfo = existingPagesInfo.getAttribute('data-pagesinfo');
+
+        var pagesInfoJSON = pagesInfo.split(',');
+
+        var index2 = parseInt(pagesInfoJSON[2]);
+        index2++;
+        
+        pagesInfoJSON[2] = index2.toString();
+        var index1 = parseInt(pagesInfoJSON[2]);
+        index1 = (Math. ceil(index2 / 5));
+        pagesInfoJSON[1] = index1.toString();
+
+        var newPagesInfo = document.createElement('h3');
+        newPagesInfo.id = 'pages-info';
+        newPagesInfo.setAttribute('data-pagesinfo', pagesInfoJSON.join(','));
+        newPagesInfo.textContent = pagesInfoJSON[0] + "/" + pagesInfoJSON[1] + "(" + index2+")";
+        existingPagesInfo.remove();
+
+        var pages = document.getElementById('pagesCounter');
+        pages.insertBefore(newPagesInfo, pages.childNodes[2]);
     }
     )
     .catch((error) => {
@@ -130,6 +153,8 @@ discoveryFilterForm.addEventListener('submit', function(event){
             ${tag.location.longitude}) ${tag.hashtag}`;
             discoveryResults.appendChild(tagElement);
         }
+
+       
     })
     .catch((error) => {
         console.error('Error:', error);
