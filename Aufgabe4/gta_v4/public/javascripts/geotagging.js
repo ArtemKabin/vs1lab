@@ -172,6 +172,52 @@ pageBeforeButton.addEventListener("click", function(event) {
     let currentPage = parseInt(pagesInfoArray[0]);
     if (currentPage > 1) {
         currentPage--;
+        const latitude = document.getElementById('latitudediscsearch').value;
+        const longitude = document.getElementById('longitudediscsearch').value;
+        const searchterm = document.getElementById('searchterm').value;
+        let params;
+        if(searchterm){
+         params = new URLSearchParams({
+            id: currentPage,
+            searchterm: searchterm,
+            latitude: latitude,w
+            longitude: longitude
+            });
+        }else{
+     params = new URLSearchParams({
+        id: currentPage,
+        latitude: latitude,
+        longitude: longitude
+        });
+    }
+        fetch(`/api/geotags/pages?${params}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(data => {
+            console.log('MAGIC Happend:', data);
+            //Update the map with the search results
+            mapManager.updateMarkers(latitude, longitude, data);
+    
+            //Update the discovery results
+            var discoveryResults = document.getElementById('discoveryResults');
+            discoveryResults.replaceChildren();
+            for (const tag of data) {
+                var tagElement = document.createElement('li');
+                tagElement.textContent = `ID: ${tag.id} , 
+                ${tag.name} (${tag.location.latitude}, 
+                ${tag.location.longitude}) ${tag.hashtag}`;
+                discoveryResults.appendChild(tagElement);
+            }
+    
+           
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
         pagesInfoArray[0] = currentPage.toString();
         pagesInfo.textContent = pagesInfoArray[0] +" / "+ pagesInfoArray[1] +"("+pagesInfoArray[2]+ ")";
         pagesInfo.setAttribute("data-pagesinfo", pagesInfoArray.join(","));
