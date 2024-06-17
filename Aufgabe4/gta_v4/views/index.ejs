@@ -83,9 +83,9 @@
                         <% }); %>
                     </ul>
                     <div class="pagination" id="pagesCounter">
-                        <a href="#">&laquo;</a>
+                        <a id="page-before">&laquo;</a>
                             <h3 id="pages-info" data-pagesinfo="<%= activePage %>,<%= (Math. ceil(taglist.length / 5)) %>,<%= taglist.length %>"> <%= activePage %> / <%= (Math. ceil(taglist.length / 5)) %> (<%= taglist.length %>)</h3>
-                        <a href="#">&raquo;</a>
+                        <a id="page-next">&raquo;</a>
                     </div>
 
                 </div>

@@ -163,6 +163,38 @@ discoveryFilterForm.addEventListener('submit', function(event){
 
 });
 
+const pageBeforeButton = document.getElementById("page-before");
+pageBeforeButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    const pagesInfo = document.getElementById("pages-info");
+    const pagesInfoData = pagesInfo.getAttribute("data-pagesinfo");
+    const pagesInfoArray = pagesInfoData.split(",");
+    let currentPage = parseInt(pagesInfoArray[0]);
+    if (currentPage > 1) {
+        currentPage--;
+        pagesInfoArray[0] = currentPage.toString();
+        pagesInfo.textContent = pagesInfoArray[0] +" / "+ pagesInfoArray[1] +"("+pagesInfoArray[2]+ ")";
+        pagesInfo.setAttribute("data-pagesinfo", pagesInfoArray.join(","));
+        
+    }
+});
+
+const pageNextButton = document.getElementById("page-next");
+pageNextButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    const pagesInfo = document.getElementById("pages-info");
+    const pagesInfoData = pagesInfo.getAttribute("data-pagesinfo");
+    const pagesInfoArray = pagesInfoData.split(",");
+    let currentPage = parseInt(pagesInfoArray[0]);
+    const totalPages = parseInt(pagesInfoArray[1]);
+    if (currentPage < totalPages) {
+        currentPage++;
+        pagesInfoArray[0] = currentPage.toString();
+        pagesInfo.textContent = pagesInfoArray[0] +" / "+ pagesInfoArray[1] +"("+pagesInfoArray[2]+ ")";
+        pagesInfo.setAttribute("data-pagesinfo", pagesInfoArray.join(","));
+    }
+});
+
 // Wait for the page to fully load its DOM content, then call updateLocation
 document.addEventListener("DOMContentLoaded", () => {
     updateLocation();
