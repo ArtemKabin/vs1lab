@@ -17,19 +17,19 @@ content-type: application/json
 
 ###
 
-GET http://localhost:3000/api/geotags?searchterm=REST&latitude=49.016171&longitude=8.390155 HTTP/1.1
+GET http://localhost:3000/api/geotags?searchterm=IWI&latitude=49.016171&longitude=8.390155 HTTP/1.1
 content-type: application/json
 
 ###
 
 # GET /api/geotags/:id
-GET http://localhost:3000/api/geotags/11 HTTP/1.1
+GET http://localhost:3000/api/geotags/2 HTTP/1.1
 content-type: application/json
 
 ###
 
 # PUT /api/geotags/:id
-PUT http://localhost:3000/api/geotags/11 HTTP/1.1
+PUT http://localhost:3000/api/geotags/1 HTTP/1.1
 content-type: application/json
 
 {
@@ -43,7 +43,7 @@ content-type: application/json
 ###
 
 # DELETE /api/geotags/:id
-DELETE http://localhost:3000/api/geotags/11 HTTP/1.1
+DELETE http://localhost:3000/api/geotags/1 HTTP/1.1
 content-type: application/json
 
 ###
@@ -59,7 +59,7 @@ content-type: application/json
 ###
 
 # GET /api/geotags
-GET http://localhost:3000/api/geotags/pages?id=3&searchterm=&latitude=49.016171&longitude=8.390155 HTTP/1.1
+GET http://localhost:3000/api/geotags/pages?id=1&searchterm=&latitude=49.016171&longitude=8.390155 HTTP/1.1
 content-type: application/json
 
 ###

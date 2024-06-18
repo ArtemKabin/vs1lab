@@ -156,7 +156,11 @@ router.get('/api/geotags', (req, res) => {
   } else {
     results = geoTagStoreInstance.getNearbyGeoTags(latitude, longitude, 50);
   }
-
+  var length = geoTagStoreInstance.getTags.length;
+  var lengthJson = {
+    "length": length
+  };
+  results.unshift(lengthJson);
   //console.log(results);
   res.status(201).json(results);
 });

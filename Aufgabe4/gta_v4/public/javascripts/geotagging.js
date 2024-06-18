@@ -153,19 +153,34 @@ discoveryFilterForm.addEventListener('submit', function (event) {
         .then(data => {
             console.log('Success:', data);
             //Update the map with the search results
-            mapManager.updateMarkers(latitude, longitude, data);
+            // mapManager.updateMarkers(latitude, longitude, data[1]);
+            console.log(data.slice(1));
+            
+            mapManager.updateMarkers(latitude, longitude, data.slice(1));
 
             //Update the discovery results
             var discoveryResults = document.getElementById('discoveryResults');
             discoveryResults.replaceChildren();
-            for (const tag of data) {
+            var pagesInfo = document.getElementById("pages-info");
+            var pagesInfoData = pagesInfo.getAttribute("data-pagesinfo");
+            const pagesInfoArray = pagesInfoData.split(",");
+            var geoTagsAmount = parseInt(data["length"]);
+            var currentPage = 1;
+            var lastPage = Math.ceil(geoTagsAmount / 5);
+             var dataNew = data.slice(1);
+            for (let i = 0; i < 5 && i < dataNew.length; i++) {
+                const tag = dataNew[i];
                 var tagElement = document.createElement('li');
                 tagElement.textContent = `ID: ${tag.id} , 
-            ${tag.name} (${tag.location.latitude}, 
-            ${tag.location.longitude}) ${tag.hashtag}`;
+                ${tag.name} (${tag.location.latitude}, 
+                ${tag.location.longitude}) ${tag.hashtag}`;
                 discoveryResults.appendChild(tagElement);
             }
-
+            pagesInfo.textContent = currentPage + " / " + lastPage + "(" + geoTagsAmount + ")";
+            pagesInfoArray[0] = currentPage.toString();
+            pagesInfoArray[1] = lastPage.toString();
+            pagesInfoArray[2] = geoTagsAmount.toString();
+            pagesInfo.setAttribute("data-pagesinfo", pagesInfoArray.join(","));
 
         })
         .catch((error) => {
