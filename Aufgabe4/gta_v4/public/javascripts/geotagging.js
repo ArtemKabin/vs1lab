@@ -154,6 +154,8 @@ discoveryFilterForm.addEventListener('submit', function (event) {
             console.log('Success:', data);
             //Update the map with the search results
             // mapManager.updateMarkers(latitude, longitude, data[1]);
+            // console.log(data.slice(0));
+            var pageSize = data["0"]["pageSize"];
             console.log(data.slice(1));
             
             mapManager.updateMarkers(latitude, longitude, data.slice(1));
@@ -166,9 +168,9 @@ discoveryFilterForm.addEventListener('submit', function (event) {
             const pagesInfoArray = pagesInfoData.split(",");
             var geoTagsAmount = parseInt(data["length"]);
             var currentPage = 1;
-            var lastPage = Math.ceil(geoTagsAmount / 5);
+            var lastPage = Math.ceil(geoTagsAmount / pageSize);
              var dataNew = data.slice(1);
-            for (let i = 0; i < 5 && i < dataNew.length; i++) {
+            for (let i = 0; i < pageSize && i < dataNew.length; i++) {
                 const tag = dataNew[i];
                 var tagElement = document.createElement('li');
                 tagElement.textContent = `ID: ${tag.id} , 
@@ -176,7 +178,7 @@ discoveryFilterForm.addEventListener('submit', function (event) {
                 ${tag.location.longitude}) ${tag.hashtag}`;
                 discoveryResults.appendChild(tagElement);
             }
-            pagesInfo.textContent = currentPage + " / " + lastPage + "(" + geoTagsAmount + ")";
+            pagesInfo.textContent = currentPage + " / " + lastPage + "(" + --geoTagsAmount + ")";
             pagesInfoArray[0] = currentPage.toString();
             pagesInfoArray[1] = lastPage.toString();
             pagesInfoArray[2] = geoTagsAmount.toString();
@@ -227,7 +229,7 @@ pageBeforeButton.addEventListener("click", function (event) {
         .then(response => response.json())
             .then(data => {
                 console.log('MAGIC Happend:', data);
-                // TOOD: WHERE IS MY DATA
+                // TODO: WHERE IS MY DATA
                 //Update the map with the search results
                 mapManager.updateMarkers(latitude, longitude, data);
 

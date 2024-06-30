@@ -79,14 +79,14 @@
                 <div class="discovery__taglist col-4">
                     <ul class="discovery__results" id="discoveryResults">
                         <% if (taglist !== undefined) {
-                            taglist.slice(0, 5).forEach(function(gtag) { %>
+                            taglist.slice(0, pageSize).forEach(function(gtag) { %>
                                 <li>ID: <%= gtag.id %> , <%= gtag.name %> ( <%= gtag.location.latitude %>,<%= gtag.location.longitude %>) <%= gtag.hashtag %> </li>
                             <% });
                         } %>
                     </ul>
                     <div class="pagination" id="pagesCounter">
                         <a id="page-before">&laquo;</a>
-                            <h3 id="pages-info" data-pagesinfo="<%= activePage %>,<%= (Math. ceil(taglist.length / 5)) %>,<%= taglist.length %>"> <%= activePage %> / <%= (Math. ceil(taglist.length / 5)) %> (<%= taglist.length %>)</h3>
+                            <h3 id="pages-info" data-pagesinfo="<%= activePage %>,<%= (Math. ceil(taglist.length / pageSize)) %>,<%= taglist.length %>"> <%= activePage %> / <%= (Math. ceil(taglist.length / pageSize)) %> (<%= (taglist.length-2) %>)</h3>
                         <a id="page-next">&raquo;</a>
                     </div>
 

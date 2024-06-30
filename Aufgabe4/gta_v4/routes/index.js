@@ -32,6 +32,8 @@ var geoTagStoreInstance = new GeoTagStore();
 const Location = require('../models/location');
 const InMemoryGeoTagStore = require('../models/geotag-store');
 
+const pageSize = 5;
+
 // App routes (A3)
 
 /**
@@ -44,7 +46,7 @@ const InMemoryGeoTagStore = require('../models/geotag-store');
  */
 
 router.get('/', (req, res) => {
-  res.render('index', { taglist: geoTagStoreInstance.getTags, searchTerm: "",activePage: 1});
+  res.render('index', { taglist: geoTagStoreInstance.getTags, searchTerm: "",activePage: 1, pageSize:pageSize});
 });
 
 
@@ -67,7 +69,7 @@ router.get('/', (req, res) => {
 router.post('/tagging', (req, res) => {
   const {  latitude, longitude ,name, hashtag} = req.body;
   geoTagStoreInstance.createGeoTagWithParams(latitude, longitude,name,hashtag);
-  res.render('index', { taglist: geoTagStoreInstance.getTags ,searchTerm: ""});
+  res.render('index', { taglist: geoTagStoreInstance.getTags ,searchTerm: "", pageSize:pageSize});
 });
 
 /**
@@ -95,7 +97,7 @@ router.post('/discovery', (req, res) => {
     results = geoTagStoreInstance.searchNearbyGeoTags(latitude, longitude, 10, searchterm);
   }
 
-  res.render('index', { taglist: results, searchTerm: searchterm});
+  res.render('index', { taglist: results, searchTerm: searchterm, pageSize:pageSize});
 });
 
 
@@ -124,8 +126,8 @@ router.get('/api/geotags/pages', (req, res) => {
   }
 
   // 5 Tags per Page
-   var pagesAmount = Math.ceil(results.length / 5);
-   results = results.slice((id-1)*5, id*5);
+   var pagesAmount = Math.ceil(results.length / pageSize);
+   results = results.slice((id-1)*pageSize, id*pageSize);
 
   //console.log(results);
   res.status(201).json(results);
@@ -158,7 +160,8 @@ router.get('/api/geotags', (req, res) => {
   }
   var length = geoTagStoreInstance.getTags.length;
   var lengthJson = {
-    "length": length
+    "length": length,
+    "pageSize": pageSize
   };
   results.unshift(lengthJson);
   //console.log(results);
