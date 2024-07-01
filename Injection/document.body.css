@@ -1,0 +1,94 @@
+<div class="jokeContainer">
+	<h1>Dad Jokes</h1>
+	<div class="joke"><h1>When does a joke become a dad joke?</h1>
+	 when it becomes apparent</div>
+	<div class="btn">Consulting another daddy</div>
+</div>
+
+<script>function getJoke() {
+	
+
+	const query = `
+	  query { 
+		joke {
+		  joke
+		  
+		}
+	  }
+	`;
+	
+	fetch(`https://icanhazdadjoke.com/graphql?query=${query}`)
+		.then(response =>  response.json())
+		.then(res => {
+			const {data} = res;
+			let joke = data.joke.joke;
+			document.querySelector('.joke').innerHTML = joke;
+		})
+	
+	}
+	
+	getJoke();
+	
+	document.querySelector('.btn').addEventListener('click', () => {
+		console.log('clicking btn') 
+		getJoke();
+	})
+	
+	</script>'
+	
+<style>html,body {
+	box-sizing: border-box;
+	background-color: #0B132B;
+	background-image: url('https://wallpaper.wiki/wp-content/uploads/2017/04/wallpaper.wiki-Random-Background-Free-Download-PIC-WPD002797.jpg');
+	background-repeat: no-repeat;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.jokeContainer {
+	height: 500px;
+	border: 5px dashed #30343F;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width:800px;
+	width: 800px;
+	margin: 0 auto;
+	background: -moz-linear-gradient(112deg, #28587B 0%, #008DD5 100%); /* ff3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #008DD5), color-stop(100%, #28587B)); /* safari4+,chrome */
+	background: -webkit-linear-gradient(112deg, #28587B 0%, #008DD5 100%); /* safari5.1+,chrome10+ */
+	background: -o-linear-gradient(112deg, #28587B 0%, #008DD5 100%); /* opera 11.10+ */
+	background: -ms-linear-gradient(112deg, #28587B 0%, #008DD5 100%); /* ie10+ */
+	background: linear-gradient(338deg, #28587B 0%, #008DD5 100%); /* w3c */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008DD5', endColorstr='#28587B',GradientType=0 ); /* ie6-9 */
+	color: white;
+	text-align: center;
+	border-radius:20px;
+}
+
+.joke {
+	padding: 1em;
+	font-size: 24px;
+	border: 3px dashed #30343F;
+	border-radius:20px;
+	width: 50%;
+	margin: 20px auto;
+}
+
+.btn {
+	border-radius:20px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: black;
+	color: white;
+	width: 150px;
+	padding: 20px;
+	text-transform: uppercase;
+	transition: all .5s ease-out;
+	
+	&:hover {
+		background-color: lighten(black, 20%);
+	}
+}</style>

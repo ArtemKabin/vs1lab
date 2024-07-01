@@ -1,0 +1,246 @@
+document.body.innerHTML = '
+<div class="emoji-box">
+  <svg id="svg-emojis" viewBox="-70 -70 600 600" width="100" title="laugh" id="emoji-laugh" oveflow="visible">
+
+    <path id="emo-laugh" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm80 152c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm-160 0c17.7 0 32 14.3 32 32s-14.3 32-32 32-32-14.3-32-32 14.3-32 32-32zm88 272h-16c-73.4 0-134-55-142.9-126-1.2-9.5 6.3-18 15.9-18h270c9.6 0 17.1 8.4 15.9 18-8.9 71-69.5 126-142.9 126z" />
+
+    <path id="emo-bomb" d="M440.5 88.5l-52 52L415 167c9.4 9.4 9.4 24.6 0 33.9l-17.4 17.4c11.8 26.1 18.4 55.1 18.4 85.6 0 114.9-93.1 208-208 208S0 418.9 0 304 93.1 96 208 96c30.5 0 59.5 6.6 85.6 18.4L311 97c9.4-9.4 24.6-9.4 33.9 0l26.5 26.5 52-52 17.1 17zM500 60h-24c-6.6 0-12 5.4-12 12s5.4 12 12 12h24c6.6 0 12-5.4 12-12s-5.4-12-12-12zM440 0c-6.6 0-12 5.4-12 12v24c0 6.6 5.4 12 12 12s12-5.4 12-12V12c0-6.6-5.4-12-12-12zm33.9 55l17-17c4.7-4.7 4.7-12.3 0-17-4.7-4.7-12.3-4.7-17 0l-17 17c-4.7 4.7-4.7 12.3 0 17 4.8 4.7 12.4 4.7 17 0zm-67.8 0c4.7 4.7 12.3 4.7 17 0 4.7-4.7 4.7-12.3 0-17l-17-17c-4.7-4.7-12.3-4.7-17 0-4.7 4.7-4.7 12.3 0 17l17 17zm67.8 34c-4.7-4.7-12.3-4.7-17 0-4.7 4.7-4.7 12.3 0 17l17 17c4.7 4.7 12.3 4.7 17 0 4.7-4.7 4.7-12.3 0-17l-17-17zM112 272c0-35.3 28.7-64 64-64 8.8 0 16-7.2 16-16s-7.2-16-16-16c-52.9 0-96 43.1-96 96 0 8.8 7.2 16 16 16s16-7.2 16-16z" />
+
+    <path id="emo-angry" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zM136 240c0-9.3 4.1-17.5 10.5-23.4l-31-9.3c-8.5-2.5-13.3-11.5-10.7-19.9 2.5-8.5 11.4-13.2 19.9-10.7l80 24c8.5 2.5 13.3 11.5 10.7 19.9-2.1 6.9-8.4 11.4-15.3 11.4-.5 0-1.1-.2-1.7-.2.7 2.7 1.7 5.3 1.7 8.2 0 17.7-14.3 32-32 32S136 257.7 136 240zm168 154.2c-27.8-33.4-84.2-33.4-112.1 0-13.5 16.3-38.2-4.2-24.6-20.5 20-24 49.4-37.8 80.6-37.8s60.6 13.8 80.6 37.8c13.8 16.5-11.1 36.6-24.5 20.5zm76.6-186.9l-31 9.3c6.3 5.8 10.5 14.1 10.5 23.4 0 17.7-14.3 32-32 32s-32-14.3-32-32c0-2.9.9-5.6 1.7-8.2-.6.1-1.1.2-1.7.2-6.9 0-13.2-4.5-15.3-11.4-2.5-8.5 2.3-17.4 10.7-19.9l80-24c8.4-2.5 17.4 2.3 19.9 10.7 2.5 8.5-2.3 17.4-10.8 19.9z" />    
+
+    <path id="emo-dice" d="M106.75 215.06L1.2 370.95c-3.08 5 .1 11.5 5.93 12.14l208.26 22.07-108.64-190.1zM7.41 315.43L82.7 193.08 6.06 147.1c-2.67-1.6-6.06.32-6.06 3.43v162.81c0 4.03 5.29 5.53 7.41 2.09zM18.25 423.6l194.4 87.66c5.3 2.45 11.35-1.43 11.35-7.26v-65.67l-203.55-22.3c-4.45-.5-6.23 5.59-2.2 7.57zm81.22-257.78L179.4 22.88c4.34-7.06-3.59-15.25-10.78-11.14L17.81 110.35c-2.47 1.62-2.39 5.26.13 6.78l81.53 48.69zM240 176h109.21L253.63 7.62C250.5 2.54 245.25 0 240 0s-10.5 2.54-13.63 7.62L130.79 176H240zm233.94-28.9l-76.64 45.99 75.29 122.35c2.11 3.44 7.41 1.94 7.41-2.1V150.53c0-3.11-3.39-5.03-6.06-3.43zm-93.41 18.72l81.53-48.7c2.53-1.52 2.6-5.16.13-6.78l-150.81-98.6c-7.19-4.11-15.12 4.08-10.78 11.14l79.93 142.94zm79.02 250.21L256 438.32v65.67c0 5.84 6.05 9.71 11.35 7.26l194.4-87.66c4.03-1.97 2.25-8.06-2.2-7.56zm-86.3-200.97l-108.63 190.1 208.26-22.07c5.83-.65 9.01-7.14 5.93-12.14L373.25 215.06zM240 208H139.57L240 383.75 340.43 208H240z" />
+
+    <path id="emo-flushed" d="M344 200c-13.3 0-24 10.7-24 24s10.7 24 24 24 24-10.7 24-24-10.7-24-24-24zm-192 0c-13.3 0-24 10.7-24 24s10.7 24 24 24 24-10.7 24-24-10.7-24-24-24zM248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zM80 224c0-39.8 32.2-72 72-72s72 32.2 72 72-32.2 72-72 72-72-32.2-72-72zm232 176H184c-21.2 0-21.2-32 0-32h128c21.2 0 21.2 32 0 32zm32-104c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72z" />
+
+    <path id="emo-vr-cardboard" style="transform:scale(.7);" d="M608 64H32C14.33 64 0 78.33 0 96v320c0 17.67 14.33 32 32 32h160.22c25.19 0 48.03-14.77 58.36-37.74l27.74-61.64C286.21 331.08 302.35 320 320 320s33.79 11.08 41.68 28.62l27.74 61.64C399.75 433.23 422.6 448 447.78 448H608c17.67 0 32-14.33 32-32V96c0-17.67-14.33-32-32-32zM160 304c-35.35 0-64-28.65-64-64s28.65-64 64-64 64 28.65 64 64-28.65 64-64 64zm320 0c-35.35 0-64-28.65-64-64s28.65-64 64-64 64 28.65 64 64-28.65 64-64 64z" />
+
+  </svg>
+</div>
+
+<svg
+     xmlns="http://www.w3.org/2000/svg"
+     id="svg2"
+     xml:space="preserve"
+     width="0"
+     height="0"
+     oveflow="visible"
+     viewBox="0 0 500 500">
+
+  <filter id="liquid">
+
+    <feGaussianBlur stdDeviation="1" 
+                    id="feGaussianBlur1" 
+                    result="gaussian_blur_result1" />
+    <feComposite 
+                 operator="in" 
+                 in="gaussian_blur_result1" 
+                 in2="result8" 
+                 id="feComposite2" 
+                 result="composite_result1" />
+    <feGaussianBlur 
+                    in="composite_result1" 
+                    stdDeviation="1" 
+                    id="feGaussianBlur2" 
+                    result="gaussian_blur_result2" />
+    <feSpecularLighting 
+                        specularExponent="20" 
+                        specularConstant="7" 
+                        surfaceScale="5" 
+                        lighting-color="#ffffff" 
+                        result="result1" 
+                        in="gaussian_blur_result2" 
+                        id="feSpecularLighting2">
+      <feDistantLight 
+                      id="feDistantLight5" 
+                      azimuth="45" 
+                      elevation="100" />
+    </feSpecularLighting>
+    <feComposite 
+                 operator="in" 
+                 in="result1" 
+                 in2="composite_result1" 
+                 id="feComposite3"  
+                 result="result2" />
+    <feComposite 
+                 k1="0" k2="1" k4="0" k3="1"  
+                 operator="arithmetic" 
+                 result="result4" 
+                 in="composite_result1" 
+                 in2="result2" 
+                 id="feComposite4" />
+    <feComposite 
+                 operator="in" 
+                 in="result9" 
+                 in2="result4" 
+                 result="result9" 
+                 id="feComposite5" />
+    <feBlend 
+             mode="multiply" 
+             in="result9" 
+             in2="result9" 
+             id="feBlend5" /> 
+    <feFlood 
+             flood-color="cyan" 
+             flood-opacity=".8" 
+             result="flood2" />
+    <feComposite 
+                 in="flood2" 
+                 in2="SourceAlpha" 
+                 operator="in" 
+                 result="mask2" />
+    <feGaussianBlur 
+                    in="mask2" 
+                    stdDeviation="3" 
+                    result="blur2" />
+    <feMerge>
+      <feMergeNode in="blur" />
+      <feMergeNode in="result9" />
+    </feMerge>     
+  </filter>
+
+  <filter id="anaglyph3d">
+    <feOffset in="SourceGraphic" dx="-4" dy="0" result="left"/>
+    <feOffset in="SourceGraphic" dx="4" dy="0" result="right"/>
+    <feComponentTransfer in="left" result="leftRed">
+      <feFuncR type="identity"></feFuncR>
+      <feFuncG type="discrete" tableValues="0"></feFuncG>
+      <!--      <feFuncB type="discrete" tableValues="0"></feFuncB> -->
+    </feComponentTransfer>
+    <feComponentTransfer in="right" result="rightCyan">
+      <feFuncR type="discrete" tableValues="0"></feFuncR>
+      <feFuncG type="identity"></feFuncG>
+      <feFuncB type="identity"></feFuncB>
+    </feComponentTransfer>
+    <feBlend in="leftRed" in2="rightCyan" mode="screen"/>
+  </filter>
+
+  <filter id="pixelate-effect" x="0" y="0">
+    <feFlood x="0" y="0" height="2" width="2"/>    
+    <feComposite width="2" height="4"/>
+    <feTile x="0" y="0" width="1000" height="1000" result="c"/>
+    <feComposite in="SourceGraphic" in2="c" operator="in"/>
+    <feMorphology operator="dilate" radius=".5"/>
+  </filter>    
+
+  <filter id="noise">
+    <feTurbulence 
+                  type="fractalNoise" 
+                  baseFrequency="0.002" 
+                  numOctaves="1" seed="1" 
+                  result="noise">
+      <animate 
+               attributeName="baseFrequency" 
+               values="0.002;0.01;0.002" 
+               dur="8s" 
+               repeatCount="indefinite" 
+               />
+    </feTurbulence>
+    <feDisplacementMap 
+                       in="SourceGraphic" 
+                       in2="noise" 
+                       scale="20"> 
+      <animate 
+               attributeName="scale" 
+               values="20; 12; 20" 
+               dur="2s" 
+               repeatCount="indefinite" />
+    </feDisplacementMap>
+    </svg>
+
+
+<script>function getJoke() {
+	document.addEventListener("DOMContentLoaded", function() {
+		const paths = document.querySelectorAll("#svg-emojis path");
+		let currentIndex = 0;
+		function showNextPath() {
+		  paths.forEach(path => path.style.display = "none");
+		  paths[currentIndex].style.display = "block";
+		  
+		  paths.forEach(path => path.style.opacity = 0);
+		  paths[currentIndex].style.opacity = 1;
+		  
+		  currentIndex = (currentIndex + 1) % paths.length;
+		}
+		paths.forEach(path => path.style.display = "none");
+		paths[0].style.display = "block";
+		
+		paths.forEach(path => path.style.opacity = 0);
+		paths[0].style.opacity = 1;
+		
+		setInterval(showNextPath, 2000);
+	  });
+	</script>'
+	
+document.head.innerHTML = '<style>body {
+	background:#000 ;
+	overflow:hidden;
+	user-select:none;
+  }
+  
+  .emoji-box {
+	position:absolute;
+	width:100px;
+	height:100px;
+	top:50%;
+	left:50%;
+	border:solid white 0px;
+	filter:
+	  /* 
+	  url(#noise)
+	  url(#liquid)
+	  url(#anaglyph3d)
+	  */  
+	  url(#pixelate-effect);
+	  ;
+	cursor:pointer;
+	transition: all 1s;
+	transform-origin:center;
+	transform:translate(-50%,-50%) scale(1.6);
+	transition-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+	&:hover {
+	  transform: translate(-50%,-50%) scale(2);
+	}
+  }
+  
+  #svg-emojis {
+	filter:
+	  /* 
+	  url(#noise)
+	  url(#pixelate-effect);
+	  */  
+	  url(#liquid)
+	  url(#anaglyph3d)
+	  ;
+	animation:r infinite 4s;
+	transform-origin:center;
+	animation-timing-function: cubic-bezier(0.860, 0.000, 0.070, 1.000);
+  }
+  
+  @keyframes r {
+	0% {
+	  transform: rotate(25deg);
+	}
+	50% {
+	  transform: rotate(-25deg);
+	}
+	100% {
+	  transform: rotate(25deg);
+	}
+  }
+  #svg-emojis path{
+	opacity:0;
+	transition: opacity 1s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+  }
+  
+  
+  /*
+  #emo-laugh{
+	display:block;
+  }
+  #emo-angry{
+	display:block;
+  }
+  #emo-bomb{
+	display:block;
+  }
+  */</style>'
