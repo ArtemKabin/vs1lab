@@ -115,7 +115,8 @@ tagForm.addEventListener('submit', function (event) {
             var newPagesInfo = document.createElement('h3');
             newPagesInfo.id = 'pages-info';
             newPagesInfo.setAttribute('data-pagesinfo', pagesInfoJSON.join(','));
-            newPagesInfo.textContent = pagesInfoJSON[0] + "/" + pagesInfoJSON[1] + "(" + index2 + ")";
+            // newPagesInfo.textContent = pagesInfoJSON[0] + "/" + pagesInfoJSON[1] + "(" + index2 + ")";
+            newPagesInfo.textContent = pagesInfoJSON[0] + "/" + pagesInfoJSON[1];
             existingPagesInfo.remove();
 
             var pages = document.getElementById('pagesCounter');
@@ -178,7 +179,8 @@ discoveryFilterForm.addEventListener('submit', function (event) {
                 ${tag.location.longitude}) ${tag.hashtag}`;
                 discoveryResults.appendChild(tagElement);
             }
-            pagesInfo.textContent = currentPage + " / " + lastPage + "(" + --geoTagsAmount + ")";
+            // pagesInfo.textContent = currentPage + " / " + lastPage + "(" + --geoTagsAmount + ")";
+            pagesInfo.textContent = currentPage + " / " + lastPage;
             pagesInfoArray[0] = currentPage.toString();
             pagesInfoArray[1] = lastPage.toString();
             pagesInfoArray[2] = geoTagsAmount.toString();
@@ -251,7 +253,8 @@ pageBeforeButton.addEventListener("click", function (event) {
             });
 
         pagesInfoArray[0] = currentPage.toString();
-        pagesInfo.textContent = pagesInfoArray[0] + " / " + pagesInfoArray[1] + "(" + pagesInfoArray[2] + ")";
+        // pagesInfo.textContent = pagesInfoArray[0] + " / " + pagesInfoArray[1] + "(" + pagesInfoArray[2] + ")";
+        pagesInfo.textContent = pagesInfoArray[0] + " / " + pagesInfoArray[1];
         pagesInfo.setAttribute("data-pagesinfo", pagesInfoArray.join(","));
 
     }
@@ -316,7 +319,8 @@ pageNextButton.addEventListener("click", function (event) {
                 console.error('Error:', error);
             });
         pagesInfoArray[0] = currentPage.toString();
-        pagesInfo.textContent = pagesInfoArray[0] + " / " + pagesInfoArray[1] + "(" + pagesInfoArray[2] + ")";
+        // pagesInfo.textContent = pagesInfoArray[0] + " / " + pagesInfoArray[1] + "(" + pagesInfoArray[2] + ")";
+        pagesInfo.textContent = pagesInfoArray[0] + " / " + pagesInfoArray[1];
         pagesInfo.setAttribute("data-pagesinfo", pagesInfoArray.join(","));
     }
 });
